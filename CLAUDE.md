@@ -113,11 +113,11 @@ The 3D model file is stored as `public/models/character.enc` and decrypted clien
 ## Development Commands
 
 ```bash
-npm install        # Install dependencies
-npm run dev        # Dev server (http://localhost:5173, also exposed on LAN via --host)
-npm run build      # TypeScript check + Vite build
-npm run preview    # Preview production build locally
-npm run lint       # ESLint
+pnpm install       # Install dependencies
+pnpm dev           # Dev server (http://localhost:5173, also exposed on LAN via --host)
+pnpm build         # TypeScript check + Vite build
+pnpm preview       # Preview production build locally
+pnpm lint          # ESLint
 ```
 
 ## Environment Variables

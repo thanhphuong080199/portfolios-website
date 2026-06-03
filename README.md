@@ -42,19 +42,19 @@ cd portfolio-website
 ### 2) Install
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### 3) Run locally
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ### 4) Build
 
 ```bash
-npm run build
+pnpm build
 ```
 
 ---
@@ -97,3 +97,12 @@ Add these topics to improve GitHub search visibility:
 ## 🪪 License
 
 This project is open source and available under the **MIT License**. See [LICENSE](LICENSE).
+
+## Content need to update
+Profile
+my work
+social link
+
+## Feature that need to add
+Change theme: light/dark/system
+change langue: vietnamese/english
