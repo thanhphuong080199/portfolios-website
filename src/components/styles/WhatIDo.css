@@ -49,21 +49,22 @@
   height: 33%;
   min-height: 50%;
   transition: 0.5s;
-  /* border: 0.5px dashed rgba(255, 255, 255, 0.3); */
   position: relative;
   padding: 50px;
   box-sizing: border-box;
 }
 
-.what-noTouch:hover,
-.what-content-active {
+/* Expanded state — hover (desktop) or Radix open (all devices) */
+.what-content:hover,
+.what-content[data-state="open"] {
   min-height: 67%;
   padding: 40px 50px;
 }
 
-.what-noTouch:hover~.what-content,
-.what-box-in:hover .what-noTouch:not(:hover),
-.what-content.what-sibling {
+/* Sibling shrink — when another card is hovered or open */
+.what-content:hover ~ .what-content,
+.what-box-in:has(.what-content:hover) .what-content:not(:hover),
+.what-box-in:has(.what-content[data-state="open"]) .what-content[data-state="closed"] {
   min-height: 33%;
   padding: 10px 50px;
 }
@@ -87,6 +88,51 @@
   margin: 0px;
   font-size: 14px;
   opacity: 0.3;
+}
+
+/* Accordion trigger reset */
+.what-trigger {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+}
+
+/* Accordion content animation */
+.what-accordion-content {
+  overflow: hidden;
+}
+
+.what-accordion-content[data-state="open"] {
+  animation: accordionSlideDown 0.4s ease-out;
+}
+
+.what-accordion-content[data-state="closed"] {
+  animation: accordionSlideUp 0.3s ease-in;
+}
+
+@keyframes accordionSlideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordionSlideUp {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
 }
 
 .what-content-in {
@@ -182,8 +228,8 @@
   height: 10px;
 }
 
-.what-noTouch:hover .what-arrow::before,
-.what-content-active .what-arrow::before {
+.what-content:hover .what-arrow::before,
+.what-content[data-state="open"] .what-arrow::before {
   transform: translate(-50%, -20%) rotate(-225deg);
 }
 
@@ -298,14 +344,14 @@
     font-size: 13px;
   }
 
-  .what-noTouch:hover,
-  .what-content-active {
+  .what-content:hover,
+  .what-content[data-state="open"] {
     padding: 20px 30px;
   }
 
-  .what-noTouch:hover~.what-content,
-  .what-box-in:hover .what-noTouch:not(:hover),
-  .what-content.what-sibling {
+  .what-content:hover ~ .what-content,
+  .what-box-in:has(.what-content:hover) .what-content:not(:hover),
+  .what-box-in:has(.what-content[data-state="open"]) .what-content[data-state="closed"] {
     padding: 10px 30px;
   }
 
@@ -345,15 +391,15 @@
     font-size: 14px;
   }
 
-  .what-noTouch:hover,
-  .what-content-active {
+  .what-content:hover,
+  .what-content[data-state="open"] {
     min-height: 67%;
     padding: 50px;
   }
 
-  .what-noTouch:hover~.what-content,
-  .what-box-in:hover .what-noTouch:not(:hover),
-  .what-content.what-sibling {
+  .what-content:hover ~ .what-content,
+  .what-box-in:has(.what-content:hover) .what-content:not(:hover),
+  .what-box-in:has(.what-content[data-state="open"]) .what-content[data-state="closed"] {
     min-height: 33%;
     padding: 10px 50px;
   }
@@ -399,10 +445,10 @@
     transition: 0.3s;
   }
 
-  .what-noTouch:hover h5,
-  .what-content-active h5,
-  .what-noTouch:hover .what-content-flex,
-  .what-content-active .what-content-flex {
+  .what-content:hover h5,
+  .what-content[data-state="open"] h5,
+  .what-content:hover .what-content-flex,
+  .what-content[data-state="open"] .what-content-flex {
     opacity: 1;
   }
 
@@ -414,8 +460,8 @@
     font-size: 11px;
   }
 
-  .what-noTouch:hover,
-  .what-content-active {
+  .what-content:hover,
+  .what-content[data-state="open"] {
     padding: 10px 30px;
   }
 
@@ -423,9 +469,9 @@
     font-size: 11px;
   }
 
-  .what-noTouch:hover~.what-content,
-  .what-box-in:hover .what-noTouch:not(:hover),
-  .what-content.what-sibling {
+  .what-content:hover ~ .what-content,
+  .what-box-in:has(.what-content:hover) .what-content:not(:hover),
+  .what-box-in:has(.what-content[data-state="open"]) .what-content[data-state="closed"] {
     padding: 5px 30px;
   }
 
