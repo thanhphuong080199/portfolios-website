@@ -2,6 +2,8 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Theme } from "@radix-ui/themes";
+import "@radix-ui/themes/styles.css";
 import "./App.css";
 
 const CharacterModel = lazy(() => import("./components/Character"));
@@ -12,6 +14,7 @@ import { LoadingProvider } from "./context/LoadingProvider";
 
 const App = () => {
   return (
+    <Theme appearance="dark" accentColor="cyan" grayColor="slate">
     <BrowserRouter>
       <Routes>
         <Route
@@ -48,6 +51,7 @@ const App = () => {
       <Analytics />
       <SpeedInsights />
     </BrowserRouter>
+    </Theme>
   );
 };
 
