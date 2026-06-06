@@ -1,4 +1,5 @@
-import * as Accordion from "@radix-ui/react-accordion";
+import { Root as AccordionRoot, Item as AccordionItem, Trigger as AccordionTrigger, Content as AccordionContent } from "@radix-ui/react-accordion";
+import { Box, Flex } from "@radix-ui/themes";
 import "./styles/WhatIDo.css";
 import { config } from "../config";
 
@@ -17,17 +18,17 @@ const skills = [
 
 const WhatIDo = () => {
   return (
-    <div className="whatIDO">
-      <div className="what-box">
+    <Box className="whatIDO">
+      <Box className="what-box">
         <h2 className="title">
           W<span className="hat-h2">HAT</span>
           <div>
             &nbsp;I<span className="do-h2"> DO</span>
           </div>
         </h2>
-      </div>
-      <div className="what-box">
-        <div className="what-box-in">
+      </Box>
+      <Box className="what-box">
+        <Box className="what-box-in">
           <div className="what-border2">
             <svg width="100%">
               <line
@@ -51,9 +52,9 @@ const WhatIDo = () => {
             </svg>
           </div>
 
-          <Accordion.Root type="single" collapsible>
+          <AccordionRoot type="single" collapsible>
             {skills.map(({ key, data, topBorder }) => (
-              <Accordion.Item key={key} value={key} className="what-content">
+              <AccordionItem key={key} value={key} className="what-content">
                 <div className="what-border1">
                   <svg height="100%">
                     {topBorder && (
@@ -78,32 +79,32 @@ const WhatIDo = () => {
                     />
                   </svg>
                 </div>
-                <div className="what-corner"></div>
+                <Box className="what-corner" />
 
-                <div className="what-content-in">
-                  <Accordion.Trigger className="what-trigger">
+                <Box className="what-content-in">
+                  <AccordionTrigger className="what-trigger">
                     <h3>{data.title}</h3>
                     <h4>{data.description}</h4>
-                  </Accordion.Trigger>
-                  <Accordion.Content className="what-accordion-content">
+                  </AccordionTrigger>
+                  <AccordionContent className="what-accordion-content">
                     <p>{data.details}</p>
                     <h5>Skillset & tools</h5>
-                    <div className="what-content-flex">
+                    <Flex className="what-content-flex">
                       {data.tools.map((tool, index) => (
-                        <div key={index} className="what-tags">
+                        <Box key={index} className="what-tags">
                           {tool}
-                        </div>
+                        </Box>
                       ))}
-                    </div>
-                  </Accordion.Content>
+                    </Flex>
+                  </AccordionContent>
                   <div className="what-arrow"></div>
-                </div>
-              </Accordion.Item>
+                </Box>
+              </AccordionItem>
             ))}
-          </Accordion.Root>
-        </div>
-      </div>
-    </div>
+          </AccordionRoot>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

@@ -1,3 +1,22 @@
+/* Radix Themes wrapper background conflicts with the site's #000 body — make it transparent */
+.radix-themes {
+  background-color: transparent !important;
+}
+
+/* Radix Themes CSS reset forces svg to display:block — restore inline for icon use */
+p svg, a svg, span svg,
+h1 svg, h2 svg, h3 svg, h4 svg, h5 svg, h6 svg,
+button svg, li svg {
+  display: inline;
+  vertical-align: middle;
+}
+
+/* Radix Themes colors and underlines all <a> — reset for custom-styled links */
+.radix-themes a:not([class*="rt-"]) {
+  color: inherit;
+  text-decoration: none;
+}
+
 .section-container {
   width: 1300px;
 }
