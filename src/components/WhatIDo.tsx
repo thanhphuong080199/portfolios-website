@@ -1,5 +1,5 @@
 import { Root as AccordionRoot, Item as AccordionItem, Trigger as AccordionTrigger, Content as AccordionContent } from "@radix-ui/react-accordion";
-import { Box, Flex } from "@radix-ui/themes";
+import { Box, Flex, Heading, Text } from "@radix-ui/themes";
 import "./styles/WhatIDo.css";
 import { config } from "../config";
 
@@ -83,12 +83,12 @@ const WhatIDo = () => {
 
                 <Box className="what-content-in">
                   <AccordionTrigger className="what-trigger">
-                    <h3>{data.title}</h3>
-                    <h4>{data.description}</h4>
+                    <Heading as="h3">{data.title}</Heading>
+                    <Heading as="h4">{data.description}</Heading>
                   </AccordionTrigger>
                   <AccordionContent className="what-accordion-content">
-                    <p>{data.details}</p>
-                    <h5>Skillset & tools</h5>
+                    <Text as="p">{data.details}</Text>
+                    <Heading as="h5">Skillset & tools</Heading>
                     <Flex className="what-content-flex">
                       {data.tools.map((tool, index) => (
                         <Box key={index} className="what-tags">

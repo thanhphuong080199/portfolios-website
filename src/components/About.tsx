@@ -1,4 +1,4 @@
-import { Box } from "@radix-ui/themes";
+import { Box, Heading, Text } from "@radix-ui/themes";
 import "./styles/About.css";
 import { config } from "../config";
 
@@ -6,10 +6,10 @@ const About = () => {
   return (
     <Box className="about-section" id="about">
       <Box className="about-me">
-        <h3 className="title">{config.about.title}</h3>
-        <p className="para">
+        <Heading as="h3" className="title">{config.about.title}</Heading>
+        <Text as="p" className="para">
           {config.about.description}
-        </p>
+        </Text>
       </Box>
     </Box>
   );

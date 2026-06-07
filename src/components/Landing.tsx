@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { Box } from "@radix-ui/themes";
+import { Box, Heading } from "@radix-ui/themes";
 import "./styles/Landing.css";
 import { config } from "../config";
 
@@ -13,22 +13,22 @@ const Landing = ({ children }: PropsWithChildren) => {
       <Box className="landing-section" id="landingDiv">
         <Box className="landing-container">
           <Box className="landing-intro">
-            <h2>Hello! I'm</h2>
-            <h1>
+            <Heading as="h2">Hello! I'm</Heading>
+            <Heading as="h1">
               {firstName.toUpperCase()}
               {' '}
               <br />
               {lastName && <span>{lastName.toUpperCase()}</span>}
-            </h1>
+            </Heading>
           </Box>
           <Box className="landing-info">
-            <h3>An</h3>
-            <h2 className="landing-info-h2">
+            <Heading as="h3">An</Heading>
+            <Heading as="h2" className="landing-info-h2">
               <div className="landing-h2-1">AI Engineer</div>
-            </h2>
-            <h2>
+            </Heading>
+            <Heading as="h2">
               <div className="landing-h2-info">Full-Stack Developer</div>
-            </h2>
+            </Heading>
           </Box>
           {/* Mobile photo - shows only on mobile when 3D character is hidden */}
           <Box className="mobile-photo">
