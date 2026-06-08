@@ -1,194 +1,102 @@
 ---
 name: radix-themes-migration
-description: Full migration plan from raw HTML + Radix Primitives to Radix Themes (Box, Flex, Text, Heading, Link) with dark/light theme switching
+description: Step-by-step Radix Themes migration progress — tracks what's done and what's next, including bugs fixed and patterns established
 metadata:
   type: project
 ---
 
-## Radix Themes Migration Plan
+## Goal
 
-Goal: migrate the portfolio from raw HTML divs to `@radix-ui/themes` components (Box, Flex, Text, Heading, Link) and replace hardcoded CSS colors with Radix tokens to enable dark/light theme switching.
+Migrate portfolio from raw HTML divs to `@radix-ui/themes` (Box, Flex, Text, Heading, Link) and replace hardcoded CSS colors with Radix tokens to enable dark/light theme switching via a single `appearance` prop.
 
-**Why:** Code readability (semantic components vs divs), maintainability, and theme switching via a single `appearance` prop on `<Theme>`.
-
-**Why:** [[radix-primitives-vs-themes]]
+**Why:** Code readability, semantic components, and theme switching.
 
 ---
 
-## Current state (as of session)
+## Progress
 
-- `@radix-ui/react-accordion` already installed and `WhatIDo.tsx` already migrated to Radix Accordion
-- All other components still use raw HTML
-- No Radix Themes installed yet
+### DONE
 
----
-
-## Step 1 — Install and wire up Theme (10 min)
-
-```bash
-pnpm add @radix-ui/themes
-```
-
-In `src/App.tsx`, wrap everything in `<Theme>`:
-
-```tsx
-import { Theme } from '@radix-ui/themes';
-import '@radix-ui/themes/styles.css';
-
-<Theme appearance="dark" accentColor="cyan" grayColor="slate">
-  <BrowserRouter>...</BrowserRouter>
-</Theme>
-```
-
-To add a toggle later, just change `appearance` to a state variable.
-
----
-
-## Step 2 — Replace JSX in each component (~2 hrs total)
-
-Pattern: `div` → `Box`, `div` with flex/grid → `Flex`/`Grid`, `h*` → `Heading as="h*"`, `p/span` → `Text as="p"`, `a` → `Link`.
-
-**Keep all `className` props unchanged** — GSAP animations target these class names and must not break.
-
-### About.tsx
-```tsx
-import { Box, Heading, Text } from '@radix-ui/themes';
-// div.about-section → Box
-// div.about-me → Box
-// h3.title → Heading as="h3"
-// p.para → Text as="p"
-```
-
-### Landing.tsx
-```tsx
-import { Box, Heading, Text } from '@radix-ui/themes';
-// div.landing-section → Box
-// div.landing-container → Flex (it's a flex layout)
-// div.landing-intro → Box
-// h1, h2 → Heading as="h1/h2"
-// div.mobile-photo → Box
-```
-
-### Career.tsx
-```tsx
-import { Box, Flex, Heading, Text } from '@radix-ui/themes';
-// div.career-section → Box
-// div.career-container → Box
-// div.career-info → Box
-// div.career-info-box → Box
-// div.career-info-in → Flex
-// h4, h3, h5 → Heading
-// p → Text
-```
-
-### Work.tsx
-```tsx
-import { Box, Flex, Heading, Text } from '@radix-ui/themes';
-// div.work-section → Box (GSAP pin target — keep className)
-// div.work-flex → Flex (GSAP translate target — keep className)
-// div.work-box → Box
-// h3, h4 → Heading
-// p → Text
-// Link (react-router) stays as-is — do NOT replace with Radix Link
-```
-
-### Contact.tsx
-```tsx
-import { Box, Flex, Heading, Text, Link } from '@radix-ui/themes';
-// div.contact-section → Box
-// div.contact-container → Box
-// div.contact-flex → Flex
-// div.contact-box → Flex (it's flex-direction: column)
-// h3, h4, h2, h5 → Heading
-// p → Text
-// a.contact-social → Link (Radix Link) — adds accessibility
-```
-
-### CallToAction.tsx
-```tsx
-import { Flex } from '@radix-ui/themes';
-// div.cta-section → Box
-// div.cta-buttons → Flex
-// Keep Link (react-router) and <a> as-is — do NOT replace navigation links with Radix Link
-```
-
-### WhatIDo.tsx
-```tsx
-// Accordion already done with @radix-ui/react-accordion
-// Replace remaining layout divs:
-// div.whatIDO → Box (or Flex — it uses display:flex)
-// div.what-box → Box
-// div.what-box-in → Box
-// div.what-corner → Box
-// div.what-content-in → Box
-// div.what-content-flex → Flex
-// div.what-tags → Box
-// h3, h4, h5 inside Accordion.Trigger → keep as raw h3/h4 (inside Radix Trigger)
-```
-
----
-
-## Step 3 — Replace CSS color values with Radix tokens (~3 hrs)
-
-This is what enables light/dark switching. Go through all CSS files and replace:
-
-| Current value | Radix token | Notes |
+| Step | File | Notes |
 |---|---|---|
-| `var(--accentColor)` | `var(--accent-9)` | Main accent (cyan) |
-| `var(--backgroundColor)` | `var(--color-background)` | Page background |
-| `color: white` | `color: var(--gray-12)` | High contrast text |
-| `rgba(255,255,255,0.15)` | `var(--gray-a3)` | Subtle fill |
-| `rgba(255,255,255,0.3)` | `var(--gray-a5)` | Medium fill |
-| `#ffffff50` (border) | `var(--gray-a6)` | Subtle border |
-| `opacity: 0.3/0.5` on text | `var(--gray-9)` / `var(--gray-10)` | Muted text |
+| 1 | `App.tsx` | `<Theme appearance="dark" accentColor="cyan" grayColor="slate">` wraps everything; `@radix-ui/themes/styles.css` imported |
+| 1 | `App.css` | 3 global Radix overrides added (see Bugs section below) |
+| 2a | `WhatIDo.tsx` | Layout divs → Box/Flex; h3/h4/h5 → Heading; p → Text; Accordion named imports (not `import *`) |
+| 2b | `About.tsx` | div → Box; h3 → Heading; p → Text |
+| 2c | `Landing.tsx` | div → Box; h1/h2/h3 → Heading |
+| 2d | `Career.tsx` | div → Box/Flex; all headings/paragraphs → Heading/Text |
+| 2e | `Work.tsx` | Full migration + Radix props audit (see Patterns section) |
 
-**Do NOT replace** fluid typography — these stay as custom CSS:
+### TODO
+
+| Step | File | Notes |
+|---|---|---|
+| 7 | `Contact.tsx` | Box/Flex/Heading/Text; external `<a>` may use Radix Link; React Router Link stays as-is |
+| 8 | `CallToAction.tsx` | Box/Flex |
+| 9 | CSS token swap | Replace `var(--accentColor)` → `var(--accent-9)`, hardcoded colors → Radix tokens across all CSS files |
+| 10 | Theme toggle | State in App.tsx, toggle button in Navbar.tsx |
+| 11 | GSAP smoke test | Verify `.work-flex`, `.career-info-box`, `.contact-box`, `.what-content-in` scroll animations still work |
+
+---
+
+## Bugs Fixed (App.css global overrides)
+
 ```css
-font-size: calc(4vw + 25px); /* keep — Radix has no fluid type scale */
-```
+/* Radix Theme wrapper sets background #111113 — conflicts with site's #000 body */
+.radix-themes {
+  background-color: transparent !important;
+}
 
-**CSS files to update (in order of impact):**
-1. `About.css` — uses `var(--accentColor)` for h3 color
-2. `Contact.css` — uses `var(--accentColor)`, `var(--backgroundColor)`
-3. `WhatIDo.css` — uses `var(--accentColor)` (via `do-h2`)
-4. `style.css` — uses `var(--accentColor)` for hover links
-5. `Landing.css`, `Career.css`, `Work.css`, `CallToAction.css` — check for hardcoded colors
-6. `MainContainer` CSS — likely the most hardcoded values
+/* Radix CSS reset forces svg to display:block — breaks inline react-icons */
+p svg, a svg, span svg,
+h1 svg, h2 svg, h3 svg, h4 svg, h5 svg, h6 svg,
+button svg, li svg {
+  display: inline;
+  vertical-align: middle;
+}
+
+/* Radix colors and underlines all <a> */
+.radix-themes a:not([class*="rt-"]) {
+  color: inherit;
+  text-decoration: none;
+}
+```
 
 ---
 
-## Step 4 — Add theme toggle (30 min)
+## Patterns Established
 
-Create a context or simple state in `App.tsx`:
+### Radix props > CSS
+Use component props instead of CSS wherever possible:
+- `weight="medium"` on Heading → removes `font-weight` from CSS
+- `justify="between"` on Flex → removes `justify-content` from CSS
+- `align="center"` on Flex → removes `align-items` from CSS
+- `style={{ textAlign: 'right' }}` on Box → removes anonymous CSS class rules
+- Keep CSS for: exact pixel values, `max-height` media queries (Radix has no equivalent), animations, complex selectors
 
+### CSS specificity for Radix Heading
+Radix's `.radix-themes .rt-Heading { margin: 0 }` is specificity 0-2-0, which beats `.section h2` (0-1-1).
+Fix options:
+- Use `h2.rt-Heading` selector in CSS (0-2-1) — wins cleanly
+- **Preferred**: wrap in `<Box className="title-wrap">` and put margin on the wrapper — separates concerns entirely
+
+### Margin wrapper pattern (Work.tsx example)
 ```tsx
-const [appearance, setAppearance] = useState<'dark' | 'light'>('dark');
-
-<Theme appearance={appearance}>
-  ...
-</Theme>
+<Box className="work-title-wrap">   {/* owns margin via CSS */}
+  <Heading as="h2" weight="medium"> {/* no margin — Radix controls it */}
+    My <span>Work</span>
+  </Heading>
+</Box>
 ```
 
-Add a toggle button in `Navbar.tsx` — one line changes the whole site.
+### React Router Link vs Radix Link
+- React Router `<Link to="...">` for internal navigation — NEVER replace with Radix Link
+- Radix `<Link>` only for external `<a>` tags (adds accessibility attributes)
 
 ---
 
-## Step 5 — Verify GSAP still works (30 min)
+## Key Constraints
 
-Run `pnpm dev` and scroll through all sections. GSAP targets class names on DOM elements — since we're keeping all `className` props, it should work unchanged. Key targets to verify:
-- `.work-flex` (horizontal scroll pin)
-- `.about-section` (scroll reveal)
-- `.career-info-box` (stagger animation)
-- `.contact-section`, `.contact-box` (scroll reveal)
-- `.what-content-in` (flicker animation)
-
----
-
-## Key constraints to remember
-
-- `Work.tsx` uses GSAP `.querySelectorAll(".work-box")` and `.querySelector(".work-container")` — these must remain as-is
-- React Router `<Link>` and Radix `<Link>` are different — use React Router Link for navigation, Radix Link only for external `<a>` tags
-- `Accordion.Trigger` is already a Radix Primitive inside WhatIDo — Radix Themes and Radix Primitives are compatible, no conflict
-- The `@radix-ui/themes/styles.css` import may reset some base styles — test after Step 1 before doing anything else
-
-**Why:** If Radix Themes base CSS conflicts with existing styles, deal with it at Step 1 before touching components.
+- `Work.tsx` GSAP targets `.work-box`, `.work-container`, `.work-flex` — these classNames must stay
+- `Career.tsx` GSAP targets `.career-info-box` — must stay
+- `Accordion.Trigger` in WhatIDo is Radix Primitive — compatible with Radix Themes, no conflict

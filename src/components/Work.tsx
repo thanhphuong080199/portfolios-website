@@ -1,3 +1,4 @@
+import { Box, Flex, Heading, Text } from "@radix-ui/themes";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import gsap from "gsap";
@@ -59,42 +60,43 @@ const Work = () => {
     };
   }, []);
   return (
-    <div className="work-section" id="work">
-      <div className="work-container section-container">
-        <h2>
-          My <span>Work</span>
-        </h2>
-        <div className="work-flex">
+    <Box className="work-section" id="work">
+      <Box className="work-container section-container">
+        <Box className="work-title-wrap">
+          <Heading as="h2" weight="medium">
+            My <span>Work</span>
+          </Heading>
+        </Box>
+        <Box className="work-flex">
           {config.projects.slice(0, 5).map((project, index) => (
-            <div className="work-box" key={project.id}>
-              <div className="work-info">
-                <div className="work-title">
-                  <h3>0{index + 1}</h3>
-
-                  <div>
-                    <h4>{project.title}</h4>
-                    <p>{project.category}</p>
-                  </div>
-                </div>
-                <h4>Tools and features</h4>
-                <p>{project.technologies}</p>
-              </div>
+            <Box className="work-box" key={project.id}>
+              <Box className="work-info">
+                <Flex className="work-title" justify="between">
+                  <Heading as="h3">{String(index + 1).padStart(2, '0')}</Heading>
+                  <Box style={{ textAlign: 'right' }}>
+                    <Heading as="h4">{project.title}</Heading>
+                    <Text as="p">{project.category}</Text>
+                  </Box>
+                </Flex>
+                <Heading as="h4" weight="medium">Tools and features</Heading>
+                <Text as="p">{project.technologies}</Text>
+              </Box>
               <WorkImage image={project.image} alt={project.title} />
-            </div>
+            </Box>
           ))}
           {/* See All Works Button */}
-          <div className="work-box work-box-cta">
-            <div className="see-all-works">
-              <h3>Want to see more?</h3>
-              <p>Explore all of my projects and creations</p>
+          <Box className="work-box work-box-cta">
+            <Box className="see-all-works">
+              <Heading as="h3">Want to see more?</Heading>
+              <Text as="p">Explore all of my projects and creations</Text>
               <Link to="/myworks" className="see-all-btn" data-cursor="disable">
                 See All Works →
               </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

@@ -1,7 +1,10 @@
-.work-section h2 {
+.work-title-wrap {
   margin-top: 100px;
+}
+
+.work-section h2,
+.work-section h2.rt-Heading {
   font-size: 70px;
-  font-weight: 500;
 }
 
 .work-section h2>span {
@@ -65,15 +68,10 @@
 }
 
 .work-title {
-  justify-content: space-between;
-  display: flex;
   width: 100%;
   margin-bottom: 20px;
 }
 
-.work-title>div {
-  text-align: right;
-}
 
 .work-title h3 {
   font-size: 50px;
@@ -82,9 +80,9 @@
   font-weight: 600;
 }
 
-.work-info h4 {
+.work-info h4,
+.work-info h4.rt-Heading {
   font-size: 26px;
-  font-weight: 500;
   margin: 0;
 }
 
@@ -160,10 +158,14 @@
     padding-bottom: 40px;
   }
 
-  .work-section h2 {
-    font-size: 60px;
-    margin-bottom: 30px;
+  .work-title-wrap {
     margin-top: 70px;
+    margin-bottom: 30px;
+  }
+
+  .work-section h2,
+  .work-section h2.rt-Heading {
+    font-size: 60px;
   }
 }
 
@@ -190,7 +192,8 @@
     padding-right: 75px;
   }
 
-  .work-section h2 {
+  .work-section h2,
+  .work-section h2.rt-Heading {
     font-size: 50px;
   }
 }
@@ -212,9 +215,13 @@
     max-height: 200px;
   }
 
-  .work-section h2 {
-    font-size: 40px;
+  .work-title-wrap {
     margin-bottom: 20px;
+  }
+
+  .work-section h2,
+  .work-section h2.rt-Heading {
+    font-size: 40px;
   }
 
   .work-box {
@@ -318,10 +325,14 @@
     flex-direction: column;
   }
 
-  .work-section h2 {
-    font-size: 36px;
+  .work-title-wrap {
     margin-top: 50px;
     margin-bottom: 20px;
+  }
+
+  .work-section h2,
+  .work-section h2.rt-Heading {
+    font-size: 36px;
   }
 
   .work-title h3 {
