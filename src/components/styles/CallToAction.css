@@ -8,10 +8,7 @@
 }
 
 .cta-buttons {
-  display: flex;
-  justify-content: center;
   gap: 25px;
-  flex-wrap: wrap;
 }
 
 .cta-btn {

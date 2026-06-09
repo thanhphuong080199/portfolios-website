@@ -72,10 +72,9 @@
   padding: 0 20px;
 }
 
-.techstack-content h2 {
+.techstack-content h2.rt-Heading {
   font-size: 70px;
   text-align: center;
-  font-weight: 400;
   text-transform: uppercase;
   margin-bottom: 50px;
   background: linear-gradient(180deg, #ffffff 0%, #c2a4ff 100%);
@@ -87,18 +86,12 @@
 
 /* Pyramid Container */
 .techstack-pyramid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 12px;
 }
 
 /* Each Row */
 .techstack-row {
-  display: flex;
-  justify-content: center;
   gap: 10px;
-  flex-wrap: wrap;
 }
 
 /* Tech Item */
@@ -178,7 +171,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .techstack-content h2 {
+  .techstack-content h2.rt-Heading {
     font-size: 50px;
     margin-bottom: 35px;
   }
@@ -209,7 +202,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .techstack-content h2 {
+  .techstack-content h2.rt-Heading {
     font-size: 36px;
   }
   

@@ -4,6 +4,7 @@ import { config } from "../config";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
+import { Box, Flex, Heading, Text } from "@radix-ui/themes";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,63 +19,43 @@ const Contact = () => {
       },
     });
 
-    // Animate title from bottom
     contactTimeline.fromTo(
       ".contact-section h3",
-      {
-        opacity: 0,
-        y: 50,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out",
-      }
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
     );
 
-    // Animate contact boxes with stagger from bottom
     contactTimeline.fromTo(
       ".contact-box",
-      {
-        opacity: 0,
-        y: 50,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: "power3.out",
-      },
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power3.out" },
       "-=0.4"
     );
 
-    // Clean up
     return () => {
       contactTimeline.kill();
     };
   }, []);
 
   return (
-    <div className="contact-section section-container" id="contact">
-      <div className="contact-container">
-        <h3>{config.developer.fullName}</h3>
-        <div className="contact-flex">
-          <div className="contact-box">
-            <h4>Email</h4>
-            <p>
+    <Box className="contact-section section-container" id="contact">
+      <Box className="contact-container">
+        <Heading as="h3" weight="regular">{config.developer.fullName}</Heading>
+        <Flex className="contact-flex" justify="between">
+          <Box className="contact-box">
+            <Heading as="h4" weight="medium">Email</Heading>
+            <Text as="p">
               <a href={`mailto:${config.contact.email}`} data-cursor="disable">
                 {config.contact.email}
               </a>
-            </p>
-            <h4>Location</h4>
-            <p>
+            </Text>
+            <Heading as="h4" weight="medium">Location</Heading>
+            <Text as="p">
               <span>{config.social.location}</span>
-            </p>
-          </div>
-          <div className="contact-box">
-            <h4>Social</h4>
+            </Text>
+          </Box>
+          <Box className="contact-box">
+            <Heading as="h4" weight="medium">Social</Heading>
             <a
               href={config.contact.github}
               target="_blank"
@@ -120,18 +101,18 @@ const Contact = () => {
             >
               Instagram <MdArrowOutward />
             </a>
-          </div>
-          <div className="contact-box">
-            <h2>
+          </Box>
+          <Box className="contact-box">
+            <Heading as="h2" weight="regular">
               Designed and Developed <br /> by <span>{config.developer.fullName}</span>
-            </h2>
-            <h5>
+            </Heading>
+            <Heading as="h5" weight="medium">
               <MdCopyright /> {new Date().getFullYear()}
-            </h5>
-          </div>
-        </div>
-      </div>
-    </div>
+            </Heading>
+          </Box>
+        </Flex>
+      </Box>
+    </Box>
   );
 };
 

@@ -10,20 +10,12 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-.contact-section h3 {
+.contact-section h3.rt-Heading {
   font-size: 32px;
-  font-weight: 400;
   text-transform: uppercase;
-  margin: 0;
   margin-bottom: 30px;
 }
-.contact-flex {
-  display: flex;
-  justify-content: space-between;
-}
-.contact-flex h4 {
-  font-weight: 500;
-  margin: 0;
+.contact-flex h4.rt-Heading {
   opacity: 0.6;
   font-size: 14px;
 }
@@ -31,7 +23,7 @@
   display: flex;
   flex-direction: column;
 }
-.contact-flex p {
+.contact-flex p.rt-Text {
   margin-top: 8px;
   margin-bottom: 15px;
   font-size: 14px;
@@ -41,45 +33,42 @@ a.contact-social {
   border-bottom: 1px solid #ccc;
   margin-bottom: 8px;
 }
-.contact-box h2 {
-  font-weight: 400;
+.contact-box h2.rt-Heading {
   font-size: 16px;
-  margin: 0;
   line-height: 22px;
 }
-.contact-box h2 > span {
+.contact-box h2.rt-Heading > span {
   color: var(--accentColor);
 }
-.contact-box h5 {
+.contact-box h5.rt-Heading {
   font-size: 14px;
-  font-weight: 500;
   line-height: 14px;
   display: flex;
   gap: 8px;
   opacity: 0.5;
 }
 @media only screen and (min-width: 600px) {
-  .contact-section h3 {
+  .contact-section h3.rt-Heading {
     font-size: 40px;
   }
-  .contact-box h2 {
+  .contact-box h2.rt-Heading {
     font-size: 18px;
   }
   a.contact-social {
     font-size: 18px;
   }
-  .contact-flex h4 {
+  .contact-flex h4.rt-Heading {
     font-size: 15px;
   }
-  .contact-flex p {
+  .contact-flex p.rt-Text {
     font-size: 15px;
   }
 }
 @media only screen and (min-width: 900px) {
-  .contact-section h3 {
+  .contact-section h3.rt-Heading {
     font-size: 48px;
   }
-  .contact-box h2 {
+  .contact-box h2.rt-Heading {
     font-size: 20px;
   }
   a.contact-social {
@@ -87,10 +76,10 @@ a.contact-social {
   }
 }
 @media only screen and (min-width: 1300px) {
-  .contact-section h3 {
+  .contact-section h3.rt-Heading {
     font-size: 55px;
   }
-  .contact-box h2 {
+  .contact-box h2.rt-Heading {
     font-size: 22px;
   }
   a.contact-social {
@@ -98,21 +87,21 @@ a.contact-social {
   }
 }
 @media only screen and (min-width: 1600px) {
-  .contact-section h3 {
+  .contact-section h3.rt-Heading {
     font-size: 60px;
     margin-bottom: 40px;
   }
-  .contact-box h2 {
+  .contact-box h2.rt-Heading {
     font-size: 23px;
   }
   a.contact-social {
     font-size: 25px;
   }
-  .contact-flex p {
+  .contact-flex p.rt-Text {
     margin-top: 10px;
     margin-bottom: 20px;
   }
-  .contact-box h5 {
+  .contact-box h5.rt-Heading {
     font-size: 20px;
     line-height: 20px;
     gap: 10px;
@@ -121,12 +110,13 @@ a.contact-social {
 @media only screen and (max-width: 900px) {
   .contact-flex {
     flex-direction: column;
+    justify-content: flex-start;
     gap: 40px;
   }
-  .contact-flex p {
+  .contact-flex p.rt-Text {
     margin-bottom: 0px;
   }
-  .contact-flex h4 {
+  .contact-flex h4.rt-Heading {
     margin-top: 20px;
   }
   .contact-section {

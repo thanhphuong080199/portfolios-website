@@ -1,26 +1,27 @@
 import { Link } from "react-router-dom";
 import { config } from "../config";
 import "./styles/CallToAction.css";
+import { Box, Flex } from "@radix-ui/themes";
 
 const CallToAction = () => {
   return (
-    <div className="cta-section">
-      <div className="cta-buttons">
+    <Box className="cta-section">
+      <Flex className="cta-buttons" justify="center" wrap="wrap">
         <Link to="/play" className="cta-btn cta-btn-play" data-cursor="disable">
           Play With Me →
         </Link>
-        
-        <a 
-          href={config.contact.linkedin} 
-          target="_blank" 
-          rel="noopener noreferrer" 
+
+        <a
+          href={config.contact.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
           className="cta-btn cta-btn-hire"
           data-cursor="disable"
         >
           Hire Me →
         </a>
-      </div>
-    </div>
+      </Flex>
+    </Box>
   );
 };
 

@@ -26,16 +26,17 @@ Migrate portfolio from raw HTML divs to `@radix-ui/themes` (Box, Flex, Text, Hea
 | 2c | `Landing.tsx` | div → Box; h1/h2/h3 → Heading |
 | 2d | `Career.tsx` | div → Box/Flex; all headings/paragraphs → Heading/Text |
 | 2e | `Work.tsx` | Full migration + Radix props audit (see Patterns section) |
+| 7 | `Contact.tsx` | Box/Flex/Heading/Text; weight props on all headings; `.rt-Heading`/`.rt-Text` selectors in CSS |
+| 8 | `CallToAction.tsx` | Box/Flex; `justify="center" wrap="wrap"` on cta-buttons Flex |
+| 9 | `TechStackNew.tsx` | Box/Flex/Heading; pyramid/row → Flex direction/justify/wrap props; h2.rt-Heading in CSS |
 
 ### TODO
 
 | Step | File | Notes |
 |---|---|---|
-| 7 | `Contact.tsx` | Box/Flex/Heading/Text; external `<a>` may use Radix Link; React Router Link stays as-is |
-| 8 | `CallToAction.tsx` | Box/Flex |
-| 9 | CSS token swap | Replace `var(--accentColor)` → `var(--accent-9)`, hardcoded colors → Radix tokens across all CSS files |
-| 10 | Theme toggle | State in App.tsx, toggle button in Navbar.tsx |
-| 11 | GSAP smoke test | Verify `.work-flex`, `.career-info-box`, `.contact-box`, `.what-content-in` scroll animations still work |
+| 10 | CSS token swap | Replace `var(--accentColor)` → `var(--accent-9)`, hardcoded colors → Radix tokens across all CSS files |
+| 11 | Theme toggle | State in App.tsx, toggle button in Navbar.tsx |
+| 12 | GSAP smoke test | Verify `.work-flex`, `.career-info-box`, `.contact-box`, `.what-content-in` scroll animations still work |
 
 ---
 

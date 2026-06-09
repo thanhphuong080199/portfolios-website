@@ -1,3 +1,4 @@
+import { Box, Flex, Heading } from "@radix-ui/themes";
 import "./styles/TechStackNew.css";
 
 interface TechItem {
@@ -73,9 +74,9 @@ const techStack: TechItem[][] = [
 
 const TechStackNew = () => {
   return (
-    <div className="techstack-new">
+    <Box className="techstack-new">
       {/* Video Background */}
-      <div className="techstack-video-container">
+      <Box className="techstack-video-container">
         <video
           autoPlay
           loop
@@ -85,17 +86,16 @@ const TechStackNew = () => {
         >
           <source src="/video/video.webm" type="video/webm" />
         </video>
-        {/* Dark Overlay */}
-        <div className="techstack-overlay"></div>
-      </div>
+        <Box className="techstack-overlay" />
+      </Box>
 
       {/* Content */}
-      <div className="techstack-content">
-        <h2>Tech Stack</h2>
-        
-        <div className="techstack-pyramid">
+      <Box className="techstack-content">
+        <Heading as="h2" weight="regular">Tech Stack</Heading>
+
+        <Flex className="techstack-pyramid" direction="column" align="center">
           {techStack.map((row, rowIndex) => (
-            <div key={rowIndex} className="techstack-row">
+            <Flex key={rowIndex} className="techstack-row" justify="center" wrap="wrap">
               {row.map((tech, techIndex) => (
                 <a
                   key={techIndex}
@@ -110,11 +110,11 @@ const TechStackNew = () => {
                   <span>{tech.name}</span>
                 </a>
               ))}
-            </div>
+            </Flex>
           ))}
-        </div>
-      </div>
-    </div>
+        </Flex>
+      </Box>
+    </Box>
   );
 };
 
