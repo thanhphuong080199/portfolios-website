@@ -6,7 +6,7 @@ import { Box, Flex } from "@radix-ui/themes";
 const CallToAction = () => {
   return (
     <Box className="cta-section">
-      <Flex className="cta-buttons" justify="center" wrap="wrap">
+      <Flex className="cta-buttons" justify="center" wrap="wrap" direction={{ initial: "column", sm: "row" }} gap={{ initial: "3", sm: "5" }}>
         <Link to="/play" className="cta-btn cta-btn-play" data-cursor="disable">
           Play With Me →
         </Link>

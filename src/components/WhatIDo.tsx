@@ -89,7 +89,7 @@ const WhatIDo = () => {
                   <AccordionContent className="what-accordion-content">
                     <Text as="p">{data.details}</Text>
                     <Heading as="h5">Skillset & tools</Heading>
-                    <Flex className="what-content-flex">
+                    <Flex className="what-content-flex" gap="1" wrap="wrap">
                       {data.tools.map((tool, index) => (
                         <Box key={index} className="what-tags">
                           {tool}

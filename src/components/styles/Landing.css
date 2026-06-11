@@ -110,7 +110,7 @@
   /* Specific styling for the distinct parts */
   .landing-h2-1 {
     font-size: 24px !important;
-    color: var(--accentColor);
+    color: var(--accent-11);
     font-weight: 700;
   }
 
@@ -327,7 +327,7 @@
 
 .landing-intro h2 {
   margin: 0;
-  color: var(--accentColor);
+  color: var(--accent-11);
   font-size: 22px;
   font-weight: 300;
   letter-spacing: 2px;
@@ -359,7 +359,7 @@
   font-size: 22px;
   letter-spacing: 2px;
   font-weight: 300;
-  color: var(--accentColor);
+  color: var(--accent-11);
   margin: 0;
 }
 

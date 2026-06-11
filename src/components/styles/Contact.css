@@ -38,7 +38,7 @@ a.contact-social {
   line-height: 22px;
 }
 .contact-box h2.rt-Heading > span {
-  color: var(--accentColor);
+  color: var(--accent-11);
 }
 .contact-box h5.rt-Heading {
   font-size: 14px;
@@ -109,8 +109,6 @@ a.contact-social {
 }
 @media only screen and (max-width: 900px) {
   .contact-flex {
-    flex-direction: column;
-    justify-content: flex-start;
     gap: 40px;
   }
   .contact-flex p.rt-Text {

@@ -93,9 +93,9 @@ const TechStackNew = () => {
       <Box className="techstack-content">
         <Heading as="h2" weight="regular">Tech Stack</Heading>
 
-        <Flex className="techstack-pyramid" direction="column" align="center">
+        <Flex className="techstack-pyramid" direction="column" align="center" gap={{ initial: "1", xs: "2", md: "3" }}>
           {techStack.map((row, rowIndex) => (
-            <Flex key={rowIndex} className="techstack-row" justify="center" wrap="wrap">
+            <Flex key={rowIndex} className="techstack-row" justify="center" wrap="wrap" gap={{ initial: "1", xs: "2", md: "3" }}>
               {row.map((tech, techIndex) => (
                 <a
                   key={techIndex}

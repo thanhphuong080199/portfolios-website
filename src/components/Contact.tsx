@@ -41,7 +41,7 @@ const Contact = () => {
     <Box className="contact-section section-container" id="contact">
       <Box className="contact-container">
         <Heading as="h3" weight="regular">{config.developer.fullName}</Heading>
-        <Flex className="contact-flex" justify="between">
+        <Flex className="contact-flex" direction={{ initial: "column", md: "row" }} justify={{ initial: "start", md: "between" }}>
           <Box className="contact-box">
             <Heading as="h4" weight="medium">Email</Heading>
             <Text as="p">

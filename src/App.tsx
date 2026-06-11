@@ -14,7 +14,7 @@ import { LoadingProvider } from "./context/LoadingProvider";
 
 const App = () => {
   return (
-    <Theme appearance="dark" accentColor="cyan" grayColor="slate">
+    <Theme appearance="dark" accentColor="violet" grayColor="slate">
     <BrowserRouter>
       <Routes>
         <Route

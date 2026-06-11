@@ -86,13 +86,13 @@ const Work = () => {
           ))}
           {/* See All Works Button */}
           <Box className="work-box work-box-cta">
-            <Box className="see-all-works">
+            <Flex className="see-all-works" direction="column" align="center" justify="center" gap="3">
               <Heading as="h3">Want to see more?</Heading>
               <Text as="p">Explore all of my projects and creations</Text>
               <Link to="/myworks" className="see-all-btn" data-cursor="disable">
                 See All Works →
               </Link>
-            </Box>
+            </Flex>
           </Box>
         </Box>
       </Box>

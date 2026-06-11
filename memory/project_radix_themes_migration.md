@@ -29,12 +29,13 @@ Migrate portfolio from raw HTML divs to `@radix-ui/themes` (Box, Flex, Text, Hea
 | 7 | `Contact.tsx` | Box/Flex/Heading/Text; weight props on all headings; `.rt-Heading`/`.rt-Text` selectors in CSS |
 | 8 | `CallToAction.tsx` | Box/Flex; `justify="center" wrap="wrap"` on cta-buttons Flex |
 | 9 | `TechStackNew.tsx` | Box/Flex/Heading; pyramid/row → Flex direction/justify/wrap props; h2.rt-Heading in CSS |
+| 10 | CSS token swap | All `--accentColor` removed; text → `--accent-11`, bg/border → `--accent-9`, rgba → `--accent-aX`; `accentColor="violet"` in App.tsx; `#c2a4ff`/`#aa42ff` tokenized; `#0b080c` in TechStackNew → `var(--backgroundColor)` |
+| 10b | Radix prop audit | About: Box→Flex+align; WhatIDo: gap="1" on what-content-flex; TechStackNew: responsive gap on pyramid/rows; CallToAction: responsive direction+gap on cta-buttons; Contact: responsive direction+justify on contact-flex; Work: see-all-works Box→Flex; MyWorks: full Radix migration (Box/Heading/Text) |
 
 ### TODO
 
 | Step | File | Notes |
 |---|---|---|
-| 10 | CSS token swap | Replace `var(--accentColor)` → `var(--accent-9)`, hardcoded colors → Radix tokens across all CSS files |
 | 11 | Theme toggle | State in App.tsx, toggle button in Navbar.tsx |
 | 12 | GSAP smoke test | Verify `.work-flex`, `.career-info-box`, `.contact-box`, `.what-content-in` scroll animations still work |
 

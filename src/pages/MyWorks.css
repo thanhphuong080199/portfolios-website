@@ -12,30 +12,30 @@
 
 .back-button {
   display: inline-block;
-  color: var(--accentColor);
+  color: var(--accent-11);
   text-decoration: none;
   font-size: 16px;
   margin-bottom: 30px;
   transition: all 0.3s ease;
   padding: 10px 20px;
-  border: 1px solid var(--accentColor);
+  border: 1px solid var(--accent-9);
   border-radius: 30px;
 }
 
 .back-button:hover {
-  background: var(--accentColor);
+  background: var(--accent-9);
   color: #000;
 }
 
-.myworks-header h1 {
+.myworks-header h1.rt-Heading {
   font-size: 70px;
   font-weight: 500;
   margin-bottom: 15px;
   color: #fff;
 }
 
-.myworks-header h1 span {
-  color: var(--accentColor);
+.myworks-header h1.rt-Heading span {
+  color: var(--accent-11);
 }
 
 .myworks-header p {
@@ -62,8 +62,8 @@
 
 .myworks-card:hover {
   transform: translateY(-10px);
-  border-color: var(--accentColor);
-  box-shadow: 0 20px 40px rgba(194, 164, 255, 0.15);
+  border-color: var(--accent-9);
+  box-shadow: 0 20px 40px var(--accent-a3);
 }
 
 .myworks-card-number {
@@ -71,7 +71,7 @@
   top: 15px;
   left: 15px;
   font-size: 14px;
-  color: var(--accentColor);
+  color: var(--accent-11);
   font-weight: 600;
   background: rgba(0, 0, 0, 0.5);
   padding: 5px 12px;
@@ -100,7 +100,7 @@
   padding: 25px;
 }
 
-.myworks-card-info h3 {
+.myworks-card-info h3.rt-Heading {
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 8px;
@@ -109,7 +109,7 @@
 
 .myworks-card-category {
   font-size: 14px;
-  color: var(--accentColor);
+  color: var(--accent-11);
   margin-bottom: 12px;
 }
 

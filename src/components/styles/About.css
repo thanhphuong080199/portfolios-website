@@ -1,8 +1,5 @@
 .about-section {
-  display: flex;
-  align-items: center;
   justify-content: left;
-  place-items: center;
   position: relative;
   opacity: 1;
   height: auto;
@@ -20,7 +17,7 @@
   text-transform: uppercase;
   letter-spacing: 4px;
   font-weight: 400;
-  color: var(--accentColor);
+  color: var(--accent-11);
   margin-bottom: 15px;
 }
 

@@ -33,7 +33,7 @@
 }
 
 .do-h2 {
-  color: var(--accentColor);
+  color: var(--accent-11);
 }
 
 .what-box-in {
@@ -301,11 +301,6 @@
   }
 }
 
-.what-content-flex {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
-}
 
 .what-tags {
   font-size: 13px;
