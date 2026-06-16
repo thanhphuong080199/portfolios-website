@@ -1,0 +1,200 @@
+{
+  "nav": {
+    "about": "GIỚI THIỆU",
+    "work": "DỰ ÁN",
+    "contact": "LIÊN HỆ"
+  },
+  "developer": {
+    "title": "Nhà phát triển AI & Full-Stack",
+    "description": "Nhà phát triển AI & Full-Stack xây dựng hệ thống thông minh và ứng dụng web hiện đại. Đam mê học máy, học sâu và tạo ra các tác nhân tự động thế hệ mới."
+  },
+  "landing": {
+    "greeting": "Xin chào! Tôi là",
+    "an": "Một",
+    "role1": "Kỹ sư AI",
+    "role2": "Nhà phát triển Full-Stack"
+  },
+  "about": {
+    "title": "Về tôi",
+    "description": "Tôi là nhà phát triển AI & Full-Stack tự học từ Bangladesh. Tôi xây dựng các hệ thống thông minh, chatbot và ứng dụng web hiện đại. Chuyên môn của tôi bao gồm Học máy, Học sâu, NLP và Phát triển Web Full-Stack với React, Node.js và Python. Hiện đang xây dựng các AI Agent thế hệ mới và Trợ lý cá nhân kiểu JARVIS. Tôi có tư duy lập trình thi đấu và niềm đam mê sâu sắc với tự động hóa. Code là thơ, AI là vải vẽ."
+  },
+  "whatido": {
+    "titlePart1": "TÔI",
+    "titlePart2": "LÀM GÌ",
+    "toolsLabel": "Kỹ năng & công cụ"
+  },
+  "career": {
+    "title": "Sự nghiệp & kinh nghiệm",
+    "now": "HIỆN TẠI"
+  },
+  "work": {
+    "titlePrefix": "Dự án ",
+    "titleHighlight": "của tôi",
+    "toolsLabel": "Công cụ & tính năng",
+    "ctaHeading": "Muốn xem thêm?",
+    "ctaSubheading": "Khám phá tất cả dự án và sản phẩm của tôi",
+    "ctaButton": "Xem tất cả dự án →"
+  },
+  "techstack": {
+    "title": "Công nghệ sử dụng"
+  },
+  "cta": {
+    "play": "Chơi cờ với tôi →",
+    "hire": "Thuê tôi →"
+  },
+  "contact": {
+    "emailLabel": "Email",
+    "locationLabel": "Địa điểm",
+    "socialLabel": "Mạng xã hội",
+    "footer": "Được thiết kế và phát triển bởi"
+  },
+  "myworks": {
+    "back": "← Về trang chủ",
+    "titlePrefix": "Tất cả ",
+    "titleHighlight": "dự án",
+    "subtitle": "Bộ sưu tập tất cả dự án và sản phẩm của tôi"
+  },
+  "play": {
+    "back": "← Về trang chủ",
+    "chatTitle": "💬 Trò chuyện với tôi",
+    "messagePlaceholder": "Nhập tin nhắn...",
+    "initialMessage": "Xin chào! Tôi là Redoyanul Haque 👋 Hãy hỏi tôi bất cứ điều gì bạn muốn biết!",
+    "opponentName": "Redoyanul",
+    "thinking": "🤔 Đang suy nghĩ...",
+    "eloRating": "ELO 3640",
+    "playerLabel": "Bạn",
+    "white": "Trắng",
+    "black": "Đen",
+    "movesLabel": "Nước đi",
+    "newGame": "Ván mới",
+    "flipBoard": "Lật bàn",
+    "newGameConfirm": "Bắt đầu ván cờ mới?",
+    "connectionError": "Xin lỗi, đang gặp sự cố kết nối. Thử lại nhé? 😅",
+    "status": {
+      "checkmateBlack": "Chiếu hết! Bên đen thắng!",
+      "checkmateWhite": "Chiếu hết! Bên trắng thắng!",
+      "staleMate": "Hòa do bế tắc",
+      "repetition": "Hòa do lặp lại",
+      "insufficientMaterial": "Hòa do thiếu quân",
+      "draw": "Hòa",
+      "checkWhite": "Bên trắng đang bị chiếu!",
+      "checkBlack": "Bên đen đang bị chiếu!",
+      "turnWhite": "Lượt của bên trắng",
+      "turnBlack": "Lượt của bên đen"
+    }
+  },
+  "skills": {
+    "develop": {
+      "title": "NHÀ PHÁT TRIỂN AI",
+      "description": "Xây dựng hệ thống thông minh & giải pháp AI",
+      "details": "Phát triển AI agents, chatbot và mô hình học máy sử dụng Python, TensorFlow và PyTorch. Chuyên về LLMs, NLP, học sâu và hệ thống tự động."
+    },
+    "design": {
+      "title": "FULL-STACK",
+      "description": "Phát triển web hiện đại & ứng dụng có thể mở rộng",
+      "details": "Xây dựng ứng dụng web responsive và hiệu năng cao sử dụng React, Next.js, Node.js và cơ sở dữ liệu. Tạo trải nghiệm người dùng liền mạch với các nguyên tắc UI/UX hiện đại."
+    }
+  },
+  "experiences": [
+    {
+      "position": "Học điều gì đó mới",
+      "company": "Tự phát triển",
+      "description": "Liên tục khám phá các công nghệ mới nổi, nghiên cứu các hệ thống AI tiên tiến và không ngừng mở rộng giới hạn những gì có thể trong công nghệ.",
+      "responsibilities": [
+        "Nghiên cứu các công nghệ AI và ML tiên tiến",
+        "Thử nghiệm các framework và công cụ mới",
+        "Đóng góp cho các dự án mã nguồn mở",
+        "Xây dựng các dự án cá nhân sáng tạo"
+      ]
+    },
+    {
+      "position": "Kỹ sư AI",
+      "company": "Freelance & Dự án",
+      "description": "Phát triển các hệ thống AI thông minh, chatbot và giải pháp học máy. Xây dựng các AI agent hội thoại thế hệ mới và trợ lý cá nhân kiểu JARVIS.",
+      "responsibilities": [
+        "Xây dựng chatbot và agent hội thoại được hỗ trợ bởi AI",
+        "Phát triển mô hình học máy với TensorFlow và PyTorch",
+        "Làm việc với LLMs và kiến trúc transformer",
+        "Tạo hệ thống AI tự động và công cụ tự động hóa"
+      ]
+    },
+    {
+      "position": "Nhà phát triển Full-Stack",
+      "company": "Freelance & Dự án",
+      "description": "Xây dựng ứng dụng web hoàn chỉnh từ frontend đến backend. Phát triển giao diện responsive, RESTful API và giải pháp cơ sở dữ liệu cho nhiều khách hàng và dự án.",
+      "responsibilities": [
+        "Phát triển ứng dụng web full-stack sử dụng React và Node.js",
+        "Xây dựng RESTful API và tích hợp cơ sở dữ liệu",
+        "Tạo giao diện người dùng responsive và tương tác",
+        "Triển khai và bảo trì ứng dụng web"
+      ]
+    },
+    {
+      "position": "Nhà phát triển Python",
+      "company": "Tự học & Dự án",
+      "description": "Đào sâu vào lập trình Python, xây dựng script tự động hóa, bot và nắm vững các nguyên tắc cơ bản của phát triển phần mềm và giải quyết vấn đề.",
+      "responsibilities": [
+        "Học lập trình Python và các khái niệm cốt lõi",
+        "Xây dựng script tự động hóa và Discord bot",
+        "Khám phá cấu trúc dữ liệu và thuật toán",
+        "Tham gia lập trình thi đấu"
+      ]
+    },
+    {
+      "position": "Nhà thiết kế đồ họa",
+      "company": "Freelance",
+      "description": "Bắt đầu hành trình sáng tạo với tư cách là nhà thiết kế đồ họa, tạo logo, banner và nội dung trực quan. Điều này đã khơi dậy niềm đam mê của tôi với công nghệ và sáng tạo kỹ thuật số.",
+      "responsibilities": [
+        "Thiết kế logo và tài liệu nhận diện thương hiệu",
+        "Tạo đồ họa mạng xã hội và banner",
+        "Làm việc với khách hàng trong các dự án sáng tạo",
+        "Học các nguyên tắc thiết kế và thẩm mỹ trực quan"
+      ]
+    },
+    {
+      "position": "Microsoft Office",
+      "company": "Bắt đầu học",
+      "description": "Bắt đầu hành trình vào thế giới kỹ thuật số bằng cách học các công cụ Microsoft Office. Bước nền tảng này đã giới thiệu tôi với máy tính và khơi dậy sự tò mò của tôi về công nghệ.",
+      "responsibilities": [
+        "Học Microsoft Word, Excel và PowerPoint",
+        "Tạo tài liệu và bài thuyết trình",
+        "Hiểu các thao tác máy tính cơ bản",
+        "Xây dựng kỹ năng kỹ thuật số nền tảng"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "category": "AI / LLM",
+      "description": "Chatbot AI tiên tiến đầu tiên của Bangladesh được hỗ trợ bởi Mô hình Ngôn ngữ Lớn tùy chỉnh. Có khả năng hiểu ngôn ngữ tự nhiên, hội thoại theo ngữ cảnh và hỗ trợ đa ngôn ngữ bao gồm tiếng Bengali."
+    },
+    {
+      "category": "Blockchain",
+      "description": "Hệ thống bầu cử phi tập trung được xây dựng trên công nghệ blockchain đảm bảo bỏ phiếu minh bạch, chống giả mạo và có thể xác minh. Tính năng hợp đồng thông minh cho tính toàn vẹn phiếu bầu và theo dõi kết quả thời gian thực."
+    },
+    {
+      "category": "IoT / Phần cứng",
+      "description": "Hệ thống IoT dựa trên mạch thực tế sử dụng Arduino để dự báo động đất trước khi xảy ra. Tích hợp cảm biến phần cứng để phát hiện địa chấn và ước tính tác động theo thời gian thực."
+    },
+    {
+      "category": "Full Stack",
+      "description": "Nền tảng thương mại điện tử đầy đủ tính năng cho sản phẩm gaming. Bao gồm xác thực người dùng, danh mục sản phẩm, giỏ hàng, thanh toán an toàn, theo dõi đơn hàng và bảng điều khiển admin."
+    },
+    {
+      "category": "AI / Game Engine",
+      "description": "Cỗ máy cờ vua hiệu năng cao được xếp hạng 3640 ELO. Tính năng thuật toán tìm kiếm nâng cao, đánh giá mạng nơ-ron và biểu diễn bitboard được tối ưu hóa để tạo nước đi siêu nhanh."
+    },
+    {
+      "category": "AI / ML",
+      "description": "Mô hình dự báo lũ lụt được thiết kế đặc biệt cho hệ thống sông ngòi Bangladesh. Phân tích mẫu thời tiết, mực nước và dữ liệu lịch sử để cung cấp dự báo và cảnh báo lũ lụt chính xác."
+    },
+    {
+      "category": "Trợ lý AI",
+      "description": "Trợ lý AI desktop cá nhân lấy cảm hứng từ JARVIS. Điều khiển các chức năng hệ thống, quản lý tác vụ, trả lời câu hỏi, tự động hóa quy trình làm việc và cung cấp trải nghiệm máy tính kích hoạt bằng giọng nói."
+    },
+    {
+      "category": "Bảo mật / Android",
+      "description": "Công cụ giám sát Android và nghiên cứu bảo mật nâng cao. Tính năng quản lý thiết bị từ xa, ghi nhật ký hoạt động và truyền dữ liệu được mã hóa cho mục đích kiểm tra bảo mật."
+    }
+  ]
+}

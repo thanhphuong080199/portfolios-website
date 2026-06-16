@@ -11,7 +11,7 @@ export default defineConfig({
           'three': ['three', 'three-stdlib'],
           'react-three': ['@react-three/fiber', '@react-three/drei'],
           'gsap': ['gsap'],
-          'vendor': ['react', 'react-dom', 'react-router-dom']
+          'vendor': ['react', 'react-dom', 'react-router-dom', 'i18next', 'react-i18next']
         }
       }
     },

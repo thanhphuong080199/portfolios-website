@@ -1,5 +1,6 @@
 import { Box, Flex, Heading } from "@radix-ui/themes";
 import "./styles/TechStackNew.css";
+import { useTranslation } from "react-i18next";
 
 interface TechItem {
   name: string;
@@ -73,6 +74,7 @@ const techStack: TechItem[][] = [
 ];
 
 const TechStackNew = () => {
+  const { t } = useTranslation();
   return (
     <Box className="techstack-new">
       {/* Video Background */}
@@ -91,7 +93,7 @@ const TechStackNew = () => {
 
       {/* Content */}
       <Box className="techstack-content">
-        <Heading as="h2" weight="regular">Tech Stack</Heading>
+        <Heading as="h2" weight="regular">{t('techstack.title')}</Heading>
 
         <Flex className="techstack-pyramid" direction="column" align="center" gap={{ initial: "1", xs: "2", md: "3" }}>
           {techStack.map((row, rowIndex) => (

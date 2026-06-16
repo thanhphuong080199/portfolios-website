@@ -6,12 +6,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
 import { config } from "../config";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger);
 
+type TranslatedProject = { category: string; description: string };
+
 const Work = () => {
+  const { t } = useTranslation();
+
+  const translatedProjects = t('projects', { returnObjects: true }) as TranslatedProject[];
+  const projects = config.projects.slice(0, 5).map((p, i) => ({ ...p, ...translatedProjects[i] }));
+
   useEffect(() => {
-    // Disable pinning on mobile to allow scrolling
     if (window.innerWidth <= 768) return;
 
     let translateX: number = 0;
@@ -50,25 +57,24 @@ const Work = () => {
       ease: "none",
     });
 
-    // Refresh ScrollTrigger after layout settles
     ScrollTrigger.refresh();
 
-    // Clean up
     return () => {
       timeline.kill();
       ScrollTrigger.getById("work")?.kill();
     };
   }, []);
+
   return (
     <Box className="work-section" id="work">
       <Box className="work-container section-container">
         <Box className="work-title-wrap">
           <Heading as="h2" weight="medium">
-            My <span>Work</span>
+            {t('work.titlePrefix')}<span>{t('work.titleHighlight')}</span>
           </Heading>
         </Box>
         <Box className="work-flex">
-          {config.projects.slice(0, 5).map((project, index) => (
+          {projects.map((project, index) => (
             <Box className="work-box" key={project.id}>
               <Box className="work-info">
                 <Flex className="work-title" justify="between">
@@ -78,19 +84,18 @@ const Work = () => {
                     <Text as="p">{project.category}</Text>
                   </Box>
                 </Flex>
-                <Heading as="h4" weight="medium">Tools and features</Heading>
+                <Heading as="h4" weight="medium">{t('work.toolsLabel')}</Heading>
                 <Text as="p">{project.technologies}</Text>
               </Box>
               <WorkImage image={project.image} alt={project.title} />
             </Box>
           ))}
-          {/* See All Works Button */}
           <Box className="work-box work-box-cta">
             <Flex className="see-all-works" direction="column" align="center" justify="center" gap="3">
-              <Heading as="h3">Want to see more?</Heading>
-              <Text as="p">Explore all of my projects and creations</Text>
+              <Heading as="h3">{t('work.ctaHeading')}</Heading>
+              <Text as="p">{t('work.ctaSubheading')}</Text>
               <Link to="/myworks" className="see-all-btn" data-cursor="disable">
-                See All Works →
+                {t('work.ctaButton')}
               </Link>
             </Flex>
           </Box>

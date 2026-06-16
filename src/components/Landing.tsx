@@ -2,8 +2,10 @@ import { PropsWithChildren } from "react";
 import { Box, Heading } from "@radix-ui/themes";
 import "./styles/Landing.css";
 import { config } from "../config";
+import { useTranslation } from "react-i18next";
 
 const Landing = ({ children }: PropsWithChildren) => {
+  const { t } = useTranslation();
   const nameParts = config.developer.fullName.split(" ");
   const firstName = nameParts[0] || config.developer.name;
   const lastName = nameParts.slice(1).join(" ") || "";
@@ -13,7 +15,7 @@ const Landing = ({ children }: PropsWithChildren) => {
       <Box className="landing-section" id="landingDiv">
         <Box className="landing-container">
           <Box className="landing-intro">
-            <Heading as="h2">Hello! I'm</Heading>
+            <Heading as="h2">{t('landing.greeting')}</Heading>
             <Heading as="h1">
               {firstName.toUpperCase()}
               {' '}
@@ -22,15 +24,14 @@ const Landing = ({ children }: PropsWithChildren) => {
             </Heading>
           </Box>
           <Box className="landing-info">
-            <Heading as="h3">An</Heading>
+            <Heading as="h3">{t('landing.an')}</Heading>
             <Heading as="h2" className="landing-info-h2">
-              <div className="landing-h2-1">AI Engineer</div>
+              <div className="landing-h2-1">{t('landing.role1')}</div>
             </Heading>
             <Heading as="h2">
-              <div className="landing-h2-info">Full-Stack Developer</div>
+              <div className="landing-h2-info">{t('landing.role2')}</div>
             </Heading>
           </Box>
-          {/* Mobile photo - shows only on mobile when 3D character is hidden */}
           <Box className="mobile-photo">
             <img src="/images/mypicnbg.png" alt="Redoyanul Haque" />
           </Box>

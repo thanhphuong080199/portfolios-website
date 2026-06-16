@@ -2,28 +2,31 @@ import { Root as AccordionRoot, Item as AccordionItem, Trigger as AccordionTrigg
 import { Box, Flex, Heading, Text } from "@radix-ui/themes";
 import "./styles/WhatIDo.css";
 import { config } from "../config";
-
-const skills = [
-  {
-    key: "develop",
-    data: config.skills.develop,
-    topBorder: true,
-  },
-  {
-    key: "design",
-    data: config.skills.design,
-    topBorder: false,
-  },
-] as const;
+import { useTranslation } from "react-i18next";
 
 const WhatIDo = () => {
+  const { t } = useTranslation();
+
+  const skillKeys = ['develop', 'design'] as const;
+  const skills = skillKeys.map((key, i) => ({
+    key,
+    title: t(`skills.${key}.title`),
+    description: t(`skills.${key}.description`),
+    details: t(`skills.${key}.details`),
+    tools: config.skills[key].tools,
+    topBorder: i === 0,
+  }));
+
+  const part1 = t('whatido.titlePart1');
+  const part2 = t('whatido.titlePart2');
+
   return (
     <Box className="whatIDO">
       <Box className="what-box">
         <h2 className="title">
-          W<span className="hat-h2">HAT</span>
+          {part1[0]}<span className="hat-h2">{part1.slice(1)}</span>
           <div>
-            &nbsp;I<span className="do-h2"> DO</span>
+            &nbsp;{part2[0]}<span className="do-h2">{part2.slice(1)}</span>
           </div>
         </h2>
       </Box>
@@ -53,7 +56,7 @@ const WhatIDo = () => {
           </div>
 
           <AccordionRoot type="single" collapsible>
-            {skills.map(({ key, data, topBorder }) => (
+            {skills.map(({ key, title, description, details, tools, topBorder }) => (
               <AccordionItem key={key} value={key} className="what-content">
                 <div className="what-border1">
                   <svg height="100%">
@@ -83,14 +86,14 @@ const WhatIDo = () => {
 
                 <Box className="what-content-in">
                   <AccordionTrigger className="what-trigger">
-                    <Heading as="h3">{data.title}</Heading>
-                    <Heading as="h4">{data.description}</Heading>
+                    <Heading as="h3">{title}</Heading>
+                    <Heading as="h4">{description}</Heading>
                   </AccordionTrigger>
                   <AccordionContent className="what-accordion-content">
-                    <Text as="p">{data.details}</Text>
-                    <Heading as="h5">Skillset & tools</Heading>
+                    <Text as="p">{details}</Text>
+                    <Heading as="h5">{t('whatido.toolsLabel')}</Heading>
                     <Flex className="what-content-flex" gap="1" wrap="wrap">
-                      {data.tools.map((tool, index) => (
+                      {tools.map((tool, index) => (
                         <Box key={index} className="what-tags">
                           {tool}
                         </Box>

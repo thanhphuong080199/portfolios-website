@@ -1,14 +1,15 @@
 import { Box, Flex, Heading, Text } from "@radix-ui/themes";
 import "./styles/About.css";
-import { config } from "../config";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
+  const { t } = useTranslation();
   return (
     <Flex className="about-section" id="about" align="center">
       <Box className="about-me">
-        <Heading as="h3" className="title">{config.about.title}</Heading>
+        <Heading as="h3" className="title">{t('about.title')}</Heading>
         <Text as="p" className="para">
-          {config.about.description}
+          {t('about.description')}
         </Text>
       </Box>
     </Flex>

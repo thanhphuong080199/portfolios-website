@@ -2,6 +2,8 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Chess, Square, PieceSymbol, Color } from "chess.js";
 import RedoxChessEngine from "../utils/redoxchessEngine";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
 import "./Play.css";
 
 // Piece SVG components matching chess.com style with custom colors
@@ -33,9 +35,8 @@ interface MoveHistory {
 interface ChatMessage {
   role: 'user' | 'assistant' | 'system';
   content: string;
+  isInitial?: boolean;
 }
-
-// API key is now handled server-side in api/chat.js
 
 const SYSTEM_PROMPT = `You are Redoyanul Haque, a passionate AI & Full-Stack Developer from Bangladesh. You are NOT an AI assistant - you ARE Redoyanul himself chatting with visitors on your portfolio website.
 
@@ -63,6 +64,8 @@ Rules:
 8. Use occasional emoji to be friendly 😊`;
 
 const Play = () => {
+  const { t } = useTranslation();
+
   const [game, setGame] = useState(new Chess());
   const [selectedSquare, setSelectedSquare] = useState<Square | null>(null);
   const [possibleMoves, setPossibleMoves] = useState<Square[]>([]);
@@ -71,14 +74,13 @@ const Play = () => {
   const [capturedBlack, setCapturedBlack] = useState<string[]>([]);
   const [boardFlipped, setBoardFlipped] = useState(false);
   const [lastMove, setLastMove] = useState<{ from: Square; to: Square } | null>(null);
-  const [gameStatus, setGameStatus] = useState<string>("");
+  const [gameStatusKey, setGameStatusKey] = useState<string>("play.status.turnWhite");
   const [playerColor] = useState<Color>("w");
   const [engineThinking, setEngineThinking] = useState(false);
   const redoxchessRef = useRef<RedoxChessEngine | null>(null);
 
-  // Chat state
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
-    { role: 'assistant', content: 'Hello there! I am Redoyanul Haque 👋 Ask me anything you want to know!' }
+    { role: 'assistant', content: 'play.initialMessage', isInitial: true },
   ]);
   const [chatInput, setChatInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -88,16 +90,16 @@ const Play = () => {
 
   const updateGameStatus = useCallback((g: Chess) => {
     if (g.isCheckmate()) {
-      setGameStatus(g.turn() === 'w' ? 'Checkmate! Black wins!' : 'Checkmate! White wins!');
+      setGameStatusKey(g.turn() === 'w' ? 'play.status.checkmateBlack' : 'play.status.checkmateWhite');
     } else if (g.isDraw()) {
-      if (g.isStalemate()) setGameStatus('Draw by stalemate');
-      else if (g.isThreefoldRepetition()) setGameStatus('Draw by repetition');
-      else if (g.isInsufficientMaterial()) setGameStatus('Draw by insufficient material');
-      else setGameStatus('Draw');
+      if (g.isStalemate()) setGameStatusKey('play.status.staleMate');
+      else if (g.isThreefoldRepetition()) setGameStatusKey('play.status.repetition');
+      else if (g.isInsufficientMaterial()) setGameStatusKey('play.status.insufficientMaterial');
+      else setGameStatusKey('play.status.draw');
     } else if (g.isCheck()) {
-      setGameStatus(g.turn() === 'w' ? 'White is in check!' : 'Black is in check!');
+      setGameStatusKey(g.turn() === 'w' ? 'play.status.checkWhite' : 'play.status.checkBlack');
     } else {
-      setGameStatus(g.turn() === 'w' ? "White's turn" : "Black's turn");
+      setGameStatusKey(g.turn() === 'w' ? 'play.status.turnWhite' : 'play.status.turnBlack');
     }
   }, []);
 
@@ -137,23 +139,18 @@ const Play = () => {
     if (engineThinking || game.turn() !== 'w') return;
     const piece = getPieceAt(square);
 
-    // If a piece is already selected
     if (selectedSquare) {
-      // Try to make a move
       if (possibleMoves.includes(square)) {
         makeMove(selectedSquare, square);
       } else if (piece && piece.color === game.turn()) {
-        // Select a different piece of the same color
         setSelectedSquare(square);
         const moves = game.moves({ square, verbose: true });
         setPossibleMoves(moves.map(m => m.to as Square));
       } else {
-        // Deselect
         setSelectedSquare(null);
         setPossibleMoves([]);
       }
     } else {
-      // Select a piece if it's the current player's turn
       if (piece && piece.color === game.turn()) {
         setSelectedSquare(square);
         const moves = game.moves({ square, verbose: true });
@@ -165,10 +162,9 @@ const Play = () => {
   const makeMove = (from: Square, to: Square) => {
     try {
       const gameCopy = new Chess(game.fen());
-      const move = gameCopy.move({ from, to, promotion: 'q' }); // Auto-promote to queen
+      const move = gameCopy.move({ from, to, promotion: 'q' });
 
       if (move) {
-        // Update captured pieces
         if (move.captured) {
           if (move.color === 'w') {
             setCapturedBlack(prev => [...prev, move.captured!]);
@@ -177,16 +173,15 @@ const Play = () => {
           }
         }
 
-        // Update move history
         setMoveHistory(prev => [...prev, {
           from: move.from,
           to: move.to,
           piece: move.piece,
           captured: move.captured,
-          san: move.san
+          san: move.san,
         }]);
 
-        setLastMove({ from: from, to: to });
+        setLastMove({ from, to });
         setGame(gameCopy);
         setSelectedSquare(null);
         setPossibleMoves([]);
@@ -205,14 +200,13 @@ const Play = () => {
     setCapturedWhite([]);
     setCapturedBlack([]);
     setLastMove(null);
-    setGameStatus("White's turn");
+    setGameStatusKey("play.status.turnWhite");
     setBoardFlipped(false);
   };
 
   const flipBoard = () => {
-    // If game is in progress, ask to start new game
     if (moveHistory.length > 0) {
-      if (window.confirm('Start new game?')) {
+      if (window.confirm(i18n.t('play.newGameConfirm'))) {
         resetGame();
         setBoardFlipped(!boardFlipped);
       }
@@ -234,19 +228,15 @@ const Play = () => {
         { role: 'system', content: SYSTEM_PROMPT },
         ...chatMessages.filter(m => m.role !== 'system').map(m => ({
           role: m.role,
-          content: m.content
+          content: m.isInitial ? i18n.t(m.content) : m.content,
         })),
-        { role: 'user', content: chatInput }
+        { role: 'user', content: chatInput },
       ];
 
       const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          messages: messages,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages }),
       });
 
       const data = await response.json();
@@ -254,7 +244,7 @@ const Play = () => {
       if (data.choices && data.choices[0]?.message?.content) {
         const assistantMessage: ChatMessage = {
           role: 'assistant',
-          content: data.choices[0].message.content
+          content: data.choices[0].message.content,
         };
         setChatMessages(prev => [...prev, assistantMessage]);
       } else {
@@ -262,11 +252,10 @@ const Play = () => {
       }
     } catch (error) {
       console.error('Chat error:', error);
-      const errorMessage: ChatMessage = {
-        role: 'assistant',
-        content: 'Sorry, having some connection issues. Try again? 😅'
-      };
-      setChatMessages(prev => [...prev, errorMessage]);
+      setChatMessages(prev => [
+        ...prev,
+        { role: 'assistant', content: i18n.t('play.connectionError') },
+      ]);
     } finally {
       setIsTyping(false);
     }
@@ -309,7 +298,7 @@ const Play = () => {
       formatted.push({
         moveNum: Math.floor(i / 2) + 1,
         white: moveHistory[i]?.san || '',
-        black: moveHistory[i + 1]?.san || ''
+        black: moveHistory[i + 1]?.san || '',
       });
     }
     return formatted;
@@ -317,10 +306,9 @@ const Play = () => {
 
   return (
     <div className="play-page">
-      {/* Header */}
       <div className="play-header">
         <Link to="/" className="back-button" data-cursor="disable">
-          ← Back to Home
+          {t('play.back')}
         </Link>
       </div>
 
@@ -328,12 +316,14 @@ const Play = () => {
         {/* Chat Panel - Left Side */}
         <div className="chat-panel">
           <div className="chat-header">
-            <span className="chat-title">💬 Talk with me</span>
+            <span className="chat-title">{t('play.chatTitle')}</span>
           </div>
           <div className="chat-messages">
             {chatMessages.map((msg, index) => (
               <div key={index} className={`chat-message ${msg.role}`}>
-                <div className="message-content">{msg.content}</div>
+                <div className="message-content">
+                  {msg.isInitial ? t(msg.content) : msg.content}
+                </div>
               </div>
             ))}
             {isTyping && (
@@ -348,7 +338,7 @@ const Play = () => {
             <input
               type="text"
               className="chat-input"
-              placeholder="Type a message..."
+              placeholder={t('play.messagePlaceholder')}
               value={chatInput}
               onChange={(e) => setChatInput(e.target.value)}
               onKeyPress={handleKeyPress}
@@ -369,8 +359,8 @@ const Play = () => {
                 <img src="/images/mypic.jpeg" alt="Redoyanul" />
               </div>
               <div className="player-details">
-                <span className="player-name">Redoyanul</span>
-                <span className="player-rating">{engineThinking ? '🤔 Thinking...' : 'ELO 3640'}</span>
+                <span className="player-name">{t('play.opponentName')}</span>
+                <span className="player-rating">{engineThinking ? t('play.thinking') : t('play.eloRating')}</span>
               </div>
             </div>
             <div className="captured-pieces">
@@ -394,14 +384,13 @@ const Play = () => {
                   return (
                     <div
                       key={square}
-                      className={`chess-square ${isLight ? 'light' : 'dark'} 
-                        ${isSelected ? 'selected' : ''} 
+                      className={`chess-square ${isLight ? 'light' : 'dark'}
+                        ${isSelected ? 'selected' : ''}
                         ${isLastMoveSquare ? 'last-move' : ''}
                         ${isCheck ? 'in-check' : ''}`}
                       onClick={() => handleSquareClick(square)}
                       data-cursor="disable"
                     >
-                      {/* Coordinate labels */}
                       {file === (boardFlipped ? 'h' : 'a') && (
                         <span className="coord-rank">{rank}</span>
                       )}
@@ -409,10 +398,8 @@ const Play = () => {
                         <span className="coord-file">{file}</span>
                       )}
 
-                      {/* Piece */}
                       {renderPiece(piece)}
 
-                      {/* Possible move indicator */}
                       {isPossibleMove && (
                         <div className={`move-indicator ${piece ? 'capture' : ''}`} />
                       )}
@@ -430,8 +417,8 @@ const Play = () => {
                 <span>👤</span>
               </div>
               <div className="player-details">
-                <span className="player-name">You</span>
-                <span className="player-rating">{playerColor === 'w' ? 'White' : 'Black'}</span>
+                <span className="player-name">{t('play.playerLabel')}</span>
+                <span className="player-rating">{playerColor === 'w' ? t('play.white') : t('play.black')}</span>
               </div>
             </div>
             <div className="captured-pieces">
@@ -442,14 +429,12 @@ const Play = () => {
 
         {/* Right Panel - Controls & Move History */}
         <div className="chess-side-panel right-panel">
-          {/* Game Status */}
           <div className="game-status">
-            <span className={game.isCheck() ? 'check' : ''}>{gameStatus}</span>
+            <span className={game.isCheck() ? 'check' : ''}>{t(gameStatusKey)}</span>
           </div>
 
-          {/* Move History */}
           <div className="move-history">
-            <div className="move-history-header">Moves</div>
+            <div className="move-history-header">{t('play.movesLabel')}</div>
             <div className="move-history-list">
               {formatMoveHistory().map((move, index) => (
                 <div key={index} className="move-row">
@@ -461,13 +446,12 @@ const Play = () => {
             </div>
           </div>
 
-          {/* Controls */}
           <div className="game-controls">
             <button onClick={resetGame} className="control-btn" data-cursor="disable">
-              New Game
+              {t('play.newGame')}
             </button>
             <button onClick={flipBoard} className="control-btn" data-cursor="disable">
-              Flip Board
+              {t('play.flipBoard')}
             </button>
           </div>
         </div>

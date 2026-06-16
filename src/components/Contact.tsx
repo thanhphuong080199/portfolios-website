@@ -5,10 +5,13 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
 import { Box, Flex, Heading, Text } from "@radix-ui/themes";
+import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     const contactTimeline = gsap.timeline({
       scrollTrigger: {
@@ -43,68 +46,38 @@ const Contact = () => {
         <Heading as="h3" weight="regular">{config.developer.fullName}</Heading>
         <Flex className="contact-flex" direction={{ initial: "column", md: "row" }} justify={{ initial: "start", md: "between" }}>
           <Box className="contact-box">
-            <Heading as="h4" weight="medium">Email</Heading>
+            <Heading as="h4" weight="medium">{t('contact.emailLabel')}</Heading>
             <Text as="p">
               <a href={`mailto:${config.contact.email}`} data-cursor="disable">
                 {config.contact.email}
               </a>
             </Text>
-            <Heading as="h4" weight="medium">Location</Heading>
+            <Heading as="h4" weight="medium">{t('contact.locationLabel')}</Heading>
             <Text as="p">
               <span>{config.social.location}</span>
             </Text>
           </Box>
           <Box className="contact-box">
-            <Heading as="h4" weight="medium">Social</Heading>
-            <a
-              href={config.contact.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
+            <Heading as="h4" weight="medium">{t('contact.socialLabel')}</Heading>
+            <a href={config.contact.github} target="_blank" rel="noopener noreferrer" data-cursor="disable" className="contact-social">
               Github <MdArrowOutward />
             </a>
-            <a
-              href={config.contact.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
+            <a href={config.contact.linkedin} target="_blank" rel="noopener noreferrer" data-cursor="disable" className="contact-social">
               Linkedin <MdArrowOutward />
             </a>
-            <a
-              href={config.contact.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
+            <a href={config.contact.twitter} target="_blank" rel="noopener noreferrer" data-cursor="disable" className="contact-social">
               Twitter <MdArrowOutward />
             </a>
-            <a
-              href={config.contact.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
+            <a href={config.contact.facebook} target="_blank" rel="noopener noreferrer" data-cursor="disable" className="contact-social">
               Facebook <MdArrowOutward />
             </a>
-            <a
-              href={config.contact.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
+            <a href={config.contact.instagram} target="_blank" rel="noopener noreferrer" data-cursor="disable" className="contact-social">
               Instagram <MdArrowOutward />
             </a>
           </Box>
           <Box className="contact-box">
             <Heading as="h2" weight="regular">
-              Designed and Developed <br /> by <span>{config.developer.fullName}</span>
+              {t('contact.footer')} <br /> <span>{config.developer.fullName}</span>
             </Heading>
             <Heading as="h5" weight="medium">
               <MdCopyright /> {new Date().getFullYear()}

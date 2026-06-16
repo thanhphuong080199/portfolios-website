@@ -81,10 +81,38 @@
   color: #fff;
 }
 
+.lang-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #ccc;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.lang-toggle:hover {
+  color: #fff;
+}
+.lang-toggle .active {
+  color: #fff;
+}
+
 @media only screen and (min-width: 500px) {
   .theme-toggle {
     color: #eae5ec;
     font-size: 20px;
+  }
+  .lang-toggle {
+    color: #eae5ec;
+    font-size: 14px;
+  }
+  .lang-toggle .active {
+    color: #fff;
   }
 }
 

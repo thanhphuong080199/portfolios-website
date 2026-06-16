@@ -5,6 +5,9 @@ import { gsap } from "gsap";
 import Lenis from "lenis";
 import { MdOutlineLightMode, MdOutlineDarkMode } from "react-icons/md";
 import { useTheme } from "../context/ThemeContext";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
+import { config } from "../config";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -12,9 +15,16 @@ export let lenis: Lenis | null = null;
 
 const Navbar = () => {
   const { appearance, toggleTheme } = useTheme();
+  const { t } = useTranslation();
+  const currentLang = i18n.language;
+
+  const toggleLang = () => {
+    const next = currentLang === 'en' ? 'vi' : 'en';
+    i18n.changeLanguage(next);
+    localStorage.setItem('language', next);
+  };
 
   useEffect(() => {
-    // Initialize Lenis smooth scroll
     lenis = new Lenis({
       duration: 1.7,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -26,17 +36,14 @@ const Navbar = () => {
       infinite: false,
     });
 
-    // Start paused
     lenis.stop();
 
-    // Handle smooth scroll animation frame
     function raf(time: number) {
       lenis?.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
 
-    // Handle navigation links
     let links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {
       let element = elem as HTMLAnchorElement;
@@ -58,7 +65,6 @@ const Navbar = () => {
       });
     });
 
-    // Handle resize
     window.addEventListener("resize", () => {
       lenis?.resize();
     });
@@ -67,6 +73,7 @@ const Navbar = () => {
       lenis?.destroy();
     };
   }, []);
+
   return (
     <>
       <div className="header">
@@ -74,27 +81,39 @@ const Navbar = () => {
           RH
         </a>
         <a
-          href="mailto:redoyanul1234@gmail.com"
+          href={`mailto:${config.social.email}`}
           className="navbar-connect"
           data-cursor="disable"
         >
-          redoyanul1234@gmail.com
+          {config.social.email}
         </a>
         <ul>
           <li>
             <a data-href="#about" href="#about">
-              <HoverLinks text="ABOUT" />
+              <HoverLinks text={t('nav.about')} />
             </a>
           </li>
           <li>
             <a data-href="#work" href="#work">
-              <HoverLinks text="WORK" />
+              <HoverLinks text={t('nav.work')} />
             </a>
           </li>
           <li>
             <a data-href="#contact" href="#contact">
-              <HoverLinks text="CONTACT" />
+              <HoverLinks text={t('nav.contact')} />
             </a>
+          </li>
+          <li>
+            <button
+              className="lang-toggle"
+              onClick={toggleLang}
+              data-cursor="disable"
+              aria-label="Toggle language"
+            >
+              <span className={currentLang === 'en' ? 'active' : ''}>EN</span>
+              {' | '}
+              <span className={currentLang === 'vi' ? 'active' : ''}>VI</span>
+            </button>
           </li>
           <li>
             <button
