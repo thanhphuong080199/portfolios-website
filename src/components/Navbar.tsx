@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
@@ -77,9 +78,9 @@ const Navbar = () => {
   return (
     <>
       <div className="header">
-        <a href="/#" className="navbar-title" data-cursor="disable">
+        <Link to="/" className="navbar-title" data-cursor="disable">
           RH
-        </a>
+        </Link>
         <a
           href={`mailto:${config.social.email}`}
           className="navbar-connect"
