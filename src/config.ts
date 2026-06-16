@@ -1,3 +1,5 @@
+const base = import.meta.env.BASE_URL;
+
 export const config = {
     developer: {
         name: "Redoyanul",
@@ -25,14 +27,14 @@ export const config = {
         { period: "2021",           location: "Bangladesh", technologies: ["MS Word", "MS Excel", "MS PowerPoint", "Computer Basics"] },
     ],
     projects: [
-        { id: 1, title: "Drishti",                       image: "/images/drishti.png",    technologies: "Python, PyTorch, Transformers, FastAPI, React, MongoDB" },
-        { id: 2, title: "VoteChain",                     image: "/images/votechain.png",  technologies: "Solidity, Web3.js, React, Ethereum, IPFS, MetaMask, Node.js" },
-        { id: 3, title: "EIE - Earthquake Impact Estimator", image: "/images/eie.png",   technologies: "Arduino, C++, IoT Sensors, Python, ML, React" },
-        { id: 4, title: "GameKroy",                      image: "/images/gamekroy.png",   technologies: "React, Node.js, MongoDB, Express, Stripe, TailwindCSS" },
-        { id: 5, title: "RedxChess",                     image: "/images/redxchess.png",  technologies: "Python, C++, Neural Networks, Bitboards, UCI Protocol" },
-        { id: 6, title: "Floodhub",                      image: "/images/floodhub.png",   technologies: "Python, TensorFlow, Pandas, React, FastAPI, GIS" },
-        { id: 7, title: "Phoenix",                       image: "/images/phoenix.png",    technologies: "Python, Speech Recognition, PyAutoGUI, OpenAI API, Tkinter" },
-        { id: 8, title: "HekTools",                      image: "/images/hektools.png",   technologies: "Kotlin, Android SDK, Firebase, Python, Encryption" },
+        { id: 1, title: "Drishti",                       image: `${base}images/drishti.png`,    technologies: "Python, PyTorch, Transformers, FastAPI, React, MongoDB" },
+        { id: 2, title: "VoteChain",                     image: `${base}images/votechain.png`,  technologies: "Solidity, Web3.js, React, Ethereum, IPFS, MetaMask, Node.js" },
+        { id: 3, title: "EIE - Earthquake Impact Estimator", image: `${base}images/eie.png`,   technologies: "Arduino, C++, IoT Sensors, Python, ML, React" },
+        { id: 4, title: "GameKroy",                      image: `${base}images/gamekroy.png`,   technologies: "React, Node.js, MongoDB, Express, Stripe, TailwindCSS" },
+        { id: 5, title: "RedxChess",                     image: `${base}images/redxchess.png`,  technologies: "Python, C++, Neural Networks, Bitboards, UCI Protocol" },
+        { id: 6, title: "Floodhub",                      image: `${base}images/floodhub.png`,   technologies: "Python, TensorFlow, Pandas, React, FastAPI, GIS" },
+        { id: 7, title: "Phoenix",                       image: `${base}images/phoenix.png`,    technologies: "Python, Speech Recognition, PyAutoGUI, OpenAI API, Tkinter" },
+        { id: 8, title: "HekTools",                      image: `${base}images/hektools.png`,   technologies: "Kotlin, Android SDK, Firebase, Python, Encryption" },
     ],
     skills: {
         develop: {

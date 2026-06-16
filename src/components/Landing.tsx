@@ -33,7 +33,7 @@ const Landing = ({ children }: PropsWithChildren) => {
             </Heading>
           </Box>
           <Box className="mobile-photo">
-            <img src="/images/mypicnbg.png" alt="Redoyanul Haque" />
+            <img src={`${import.meta.env.BASE_URL}images/mypicnbg.png`} alt="Redoyanul Haque" />
           </Box>
         </Box>
         {children}
