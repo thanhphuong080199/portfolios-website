@@ -1,7 +1,5 @@
 import { lazy, Suspense, useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Theme } from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 import "./App.css";
@@ -45,8 +43,6 @@ const App = () => {
           }
         />
       </Routes>
-      <Analytics />
-      <SpeedInsights />
     </HashRouter>
     </Theme>
     </ThemeContext.Provider>

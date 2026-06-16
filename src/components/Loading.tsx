@@ -33,6 +33,20 @@ const Loading = ({ percent }: { percent: number }) => {
     });
   }, [isLoaded]);
 
+  // Safety fallback: if the 3D model fails to load (e.g. 404 on GitHub Pages),
+  // force-start animations after 8s so the page remains usable.
+  useEffect(() => {
+    const fallback = setTimeout(() => {
+      if (!isLoaded) {
+        import("./utils/initialFX").then((module) => {
+          if (module.initialFX) module.initialFX();
+          setIsLoading(false);
+        });
+      }
+    }, 8000);
+    return () => clearTimeout(fallback);
+  }, []);
+
   function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
     const { currentTarget: target } = e;
     const rect = target.getBoundingClientRect();
