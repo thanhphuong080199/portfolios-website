@@ -29,8 +29,8 @@ A modern, high-performance developer portfolio built with React, TypeScript, Thr
 | Routing | React Router DOM v7 |
 | i18n | react-i18next, i18next |
 | Chess | chess.js + custom WASM engine |
-| AI Chat | Groq API (llama-3.3-70b-versatile) via Vercel serverless |
-| Deployment | Vercel |
+| AI Chat | Groq API (llama-3.3-70b-versatile) via serverless function |
+| Deployment | GitHub Pages (GitHub Actions) |
 
 ---
 
@@ -96,7 +96,7 @@ All content is centralized in **`src/config.ts`** — update it to make the port
 ```
 /
 ├── api/
-│   └── chat.js              # Vercel serverless function — proxies Groq API
+│   └── chat.js              # Serverless function — proxies Groq API
 ├── public/
 │   ├── models/              # 3D character model (.glb) + HDR lighting
 │   ├── draco/               # Draco decoder for compressed geometry
@@ -114,20 +114,29 @@ All content is centralized in **`src/config.ts`** — update it to make the port
 │   │   ├── MyWorks.tsx      # Full project gallery
 │   │   └── Play.tsx         # Chess + AI chat
 │   └── utils/               # Chess engine wrapper, text utilities
-├── vercel.json              # SPA rewrites + security headers
-└── vite.config.ts           # Manual chunks, Terser minification
+├── .github/workflows/deploy.yml  # GitHub Actions — build + deploy to GitHub Pages
+└── vite.config.ts               # base URL, manual chunks, Terser minification
 ```
 
 ---
 
 ## Deployment
 
-The project is ready to deploy on **Vercel**:
+The project deploys automatically to **GitHub Pages** via GitHub Actions on every push to `main`.
 
-1. Push your fork to GitHub
-2. Import the repo in [vercel.com](https://vercel.com)
-3. Add `GROQ_API_KEY` in Vercel project settings → Environment Variables
-4. Deploy — Vercel auto-detects Vite and picks up `api/` as serverless functions
+### Setup (one-time)
+
+1. Go to your repo → **Settings → Pages**
+2. Set **Source** to `GitHub Actions`
+3. Add your `GROQ_API_KEY` under **Settings → Secrets and variables → Actions**
+4. Push to `main` — the workflow in `.github/workflows/deploy.yml` builds and deploys automatically
+
+The `base` in `vite.config.ts` is set to `/portfolios-website/` to match the GitHub Pages URL. Update it to match your repo name if it differs:
+
+```ts
+// vite.config.ts
+base: '/<your-repo-name>/',
+```
 
 ---
 
