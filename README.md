@@ -1,108 +1,142 @@
-# 🚀 3D Developer Portfolio Website (React + TypeScript + Three.js)
+# 3D Developer Portfolio Website
 
-[![3D portfolio preview (click to watch video)](./Screenshot_2026-04-08_22-10-00.png)](./screen-capture%20(13).webm)
+A modern, high-performance developer portfolio built with React, TypeScript, Three.js, GSAP, and WebGL. Features a fully animated 3D character on desktop, smooth scroll animations, an interactive chess game, and an AI chat powered by a language model.
 
-A modern, high-performance **3D developer portfolio website** built with **React**, **TypeScript**, **Three.js**, **GSAP**, and **WebGL**.
-
-If you’re a developer looking for a **portfolio template** that feels premium, interactive, and memorable—this repo is for you.
-
-> Live preview: https://www.redoyanulhaque.me/
+> Forked from [red1-for-hek/portfolio-website](https://github.com/red1-for-hek/portfolio-website) — customized with i18n (English / Vietnamese) support and additional features.
 
 ---
 
-## ✨ Highlights
+## Features
 
-- **3D / WebGL experience** powered by **Three.js**
-- Smooth animations with **GSAP**
-- Modern **React + TypeScript** codebase
-- Fast, responsive UI (desktop + mobile)
-- Designed for developers, engineers, programmers, and creators
-
----
-
-## 🧰 Tech Stack
-
-- **React**
-- **TypeScript**
-- **Three.js / WebGL**
-- **GSAP**
-- **HTML / CSS / JavaScript**
+- **3D / WebGL scene** — animated character model (Three.js) that tracks your mouse cursor, desktop only
+- **Smooth animations** — GSAP ScrollTrigger reveals + Lenis smooth scroll
+- **Multi-language** — English / Vietnamese via react-i18next
+- **Interactive chess** — play against the custom RedxChess WASM engine
+- **AI chat** — LLM-powered chat (Groq LLaMA-3.3-70B) that role-plays as the developer
+- **Responsive** — 3D replaced with a static photo on mobile
+- **Fast builds** — Vite with manual chunk splitting for Three.js, GSAP, and vendor libs
 
 ---
 
-## 🚀 Getting Started
+## Tech Stack
 
-### 1) Clone
+| Layer | Technology |
+|---|---|
+| Framework | React 18 + TypeScript 5 |
+| Build Tool | Vite 5 |
+| 3D Rendering | Three.js 0.168, @react-three/fiber, @react-three/drei |
+| Animations | GSAP 3 (ScrollTrigger), Lenis |
+| Routing | React Router DOM v7 |
+| i18n | react-i18next, i18next |
+| Chess | chess.js + custom WASM engine |
+| AI Chat | Groq API (llama-3.3-70b-versatile) via Vercel serverless |
+| Deployment | Vercel |
+
+---
+
+## Getting Started
+
+### 1. Clone
 
 ```bash
-git clone https://github.com/red1-for-hek/portfolio-website.git
-cd portfolio-website
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
 ```
 
-### 2) Install
+### 2. Install
 
 ```bash
 pnpm install
 ```
 
-### 3) Run locally
+### 3. Set up environment variables
+
+Copy `.env.example` to `.env.local` and fill in your key:
 
 ```bash
-pnpm dev
+cp .env.example .env.local
 ```
 
-### 4) Build
+```env
+GROQ_API_KEY=your_groq_api_key_here
+```
+
+Get a free API key at [console.groq.com](https://console.groq.com).
+
+### 4. Run locally
 
 ```bash
-pnpm build
+pnpm dev        # http://localhost:5173
+pnpm build      # production build
+pnpm preview    # preview production build
+pnpm lint       # ESLint
 ```
 
 ---
 
-## 🧩 Customize (Quick Guide)
+## Customization
 
-Typical things you’ll want to update:
+All content is centralized in **`src/config.ts`** — update it to make the portfolio your own:
 
-- **Your name + hero section text**
-- **Projects list**
-- **Social links** (GitHub, LinkedIn, email)
-- **SEO meta title/description**
-
----
-
-## ⭐ Support
-
-If you found this useful:
-
-- Please **star** the repository (it helps a lot)
-- Share it with a friend who needs a portfolio template
-- Sponsor via the **Sponsor** button on GitHub (if available in your region)
+| What to change | Where |
+|---|---|
+| Your name, email, location, social links | `src/config.ts` → `developer`, `social`, `contact` |
+| Projects list | `src/config.ts` → `projects` |
+| Career / experience timeline | `src/config.ts` → `experiences` |
+| Skills | `src/config.ts` → `skills` |
+| Translation strings (EN / VI) | `src/i18n/locales/en.json`, `src/i18n/locales/vi.json` |
+| Profile photo (mobile) | `public/images/mypicnbg.png` |
+| Project screenshots | `public/images/` |
+| AI chat persona / system prompt | `api/chat.js` |
 
 ---
 
-## 🤝 Connect
+## Project Structure
 
-- LinkedIn: https://www.linkedin.com/in/red1-for-hek/
+```
+/
+├── api/
+│   └── chat.js              # Vercel serverless function — proxies Groq API
+├── public/
+│   ├── models/              # 3D character model (.glb) + HDR lighting
+│   ├── draco/               # Draco decoder for compressed geometry
+│   ├── redoxchess.js/.wasm  # Custom chess engine (C++ → WASM)
+│   ├── images/              # Project screenshots, profile photo
+│   └── video/               # Background video
+├── src/
+│   ├── config.ts            # Central content store
+│   ├── i18n/
+│   │   └── locales/
+│   │       ├── en.json      # English translations
+│   │       └── vi.json      # Vietnamese translations
+│   ├── components/          # All UI components + GSAP animations
+│   ├── pages/
+│   │   ├── MyWorks.tsx      # Full project gallery
+│   │   └── Play.tsx         # Chess + AI chat
+│   └── utils/               # Chess engine wrapper, text utilities
+├── vercel.json              # SPA rewrites + security headers
+└── vite.config.ts           # Manual chunks, Terser minification
+```
 
 ---
 
-## 🏷️ Recommended GitHub Topics (add in repo settings)
+## Deployment
 
-Add these topics to improve GitHub search visibility:
+The project is ready to deploy on **Vercel**:
 
-`portfolio` `developer-portfolio` `portfolio-website` `portfolio-template` `3d-portfolio` `react` `typescript` `threejs` `webgl` `gsap` `frontend` `vite`
+1. Push your fork to GitHub
+2. Import the repo in [vercel.com](https://vercel.com)
+3. Add `GROQ_API_KEY` in Vercel project settings → Environment Variables
+4. Deploy — Vercel auto-detects Vite and picks up `api/` as serverless functions
 
 ---
 
-## 🪪 License
+## Credits
 
-This project is open source and available under the **MIT License**. See [LICENSE](LICENSE).
+Original design and implementation by [Redoyanul Haque](https://github.com/red1-for-hek). This fork adds internationalization (EN/VI), additional features, and personal customizations.
 
-## Content need to update
-Profile
-my work
-social link
+---
 
-## Feature that need to add
-Change theme: light/dark/system
-change langue: vietnamese/english
+## License
+
+MIT — see [LICENSE](LICENSE).
