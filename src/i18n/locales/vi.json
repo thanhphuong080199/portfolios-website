@@ -39,7 +39,6 @@
     "title": "Công nghệ sử dụng"
   },
   "cta": {
-    "play": "Chơi cờ với tôi →",
     "hire": "Thuê tôi →"
   },
   "contact": {
@@ -53,35 +52,6 @@
     "titlePrefix": "Tất cả ",
     "titleHighlight": "dự án",
     "subtitle": "Bộ sưu tập tất cả dự án và sản phẩm của tôi"
-  },
-  "play": {
-    "back": "← Về trang chủ",
-    "chatTitle": "💬 Trò chuyện với tôi",
-    "messagePlaceholder": "Nhập tin nhắn...",
-    "initialMessage": "Xin chào! Tôi là Redoyanul Haque 👋 Hãy hỏi tôi bất cứ điều gì bạn muốn biết!",
-    "opponentName": "Redoyanul",
-    "thinking": "🤔 Đang suy nghĩ...",
-    "eloRating": "ELO 3640",
-    "playerLabel": "Bạn",
-    "white": "Trắng",
-    "black": "Đen",
-    "movesLabel": "Nước đi",
-    "newGame": "Ván mới",
-    "flipBoard": "Lật bàn",
-    "newGameConfirm": "Bắt đầu ván cờ mới?",
-    "connectionError": "Xin lỗi, đang gặp sự cố kết nối. Thử lại nhé? 😅",
-    "status": {
-      "checkmateBlack": "Chiếu hết! Bên đen thắng!",
-      "checkmateWhite": "Chiếu hết! Bên trắng thắng!",
-      "staleMate": "Hòa do bế tắc",
-      "repetition": "Hòa do lặp lại",
-      "insufficientMaterial": "Hòa do thiếu quân",
-      "draw": "Hòa",
-      "checkWhite": "Bên trắng đang bị chiếu!",
-      "checkBlack": "Bên đen đang bị chiếu!",
-      "turnWhite": "Lượt của bên trắng",
-      "turnBlack": "Lượt của bên đen"
-    }
   },
   "skills": {
     "develop": {

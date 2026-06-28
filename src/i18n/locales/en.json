@@ -39,7 +39,6 @@
     "title": "Tech Stack"
   },
   "cta": {
-    "play": "Play With Me →",
     "hire": "Hire Me →"
   },
   "contact": {
@@ -53,35 +52,6 @@
     "titlePrefix": "All ",
     "titleHighlight": "Works",
     "subtitle": "A collection of all my projects and creations"
-  },
-  "play": {
-    "back": "← Back to Home",
-    "chatTitle": "💬 Talk with me",
-    "messagePlaceholder": "Type a message...",
-    "initialMessage": "Hello there! I am Redoyanul Haque 👋 Ask me anything you want to know!",
-    "opponentName": "Redoyanul",
-    "thinking": "🤔 Thinking...",
-    "eloRating": "ELO 3640",
-    "playerLabel": "You",
-    "white": "White",
-    "black": "Black",
-    "movesLabel": "Moves",
-    "newGame": "New Game",
-    "flipBoard": "Flip Board",
-    "newGameConfirm": "Start new game?",
-    "connectionError": "Sorry, having some connection issues. Try again? 😅",
-    "status": {
-      "checkmateBlack": "Checkmate! Black wins!",
-      "checkmateWhite": "Checkmate! White wins!",
-      "staleMate": "Draw by stalemate",
-      "repetition": "Draw by repetition",
-      "insufficientMaterial": "Draw by insufficient material",
-      "draw": "Draw",
-      "checkWhite": "White is in check!",
-      "checkBlack": "Black is in check!",
-      "turnWhite": "White's turn",
-      "turnBlack": "Black's turn"
-    }
   },
   "skills": {
     "develop": {
