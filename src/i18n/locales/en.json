@@ -42,7 +42,7 @@
       "years": "5 years"
     },
     "caseStudies": {
-      "title": "Backend case studies",
+      "title": "Engineering case studies",
       "items": [
         {
           "status": "Resolved",
@@ -67,6 +67,13 @@
           "takeaway": "A UAT load test recorded eight JVM restarts across two pods in roughly 21 minutes.",
           "diagnosis": "I investigated the restarts and traced them to the shared backend deployment chart. All three probes ran on the application port. When incoming traffic exhausted Tomcat’s request threads, liveness checks timed out and Kubernetes restarted containers that were still processing requests.",
           "approach": "The fix moved startup, readiness, and liveness probes to a dedicated Spring Boot Actuator management port in the shared chart. The probes now use a separate request pool within the same JVM. The gateway health route and deployment automation were updated to use the management port."
+        },
+        {
+          "status": "Internal developer tooling · 2026",
+          "title": "Building an AI development kit for engineering teams",
+          "takeaway": "I co-developed an internal Claude Code plugin that standardizes how engineers use AI agents to plan, implement, and review changes for an insurance platform.",
+          "diagnosis": "I designed and built an Argo CD log triage skill that turns the first pass of an incident investigation into a single prompt. It fetches Kubernetes pod logs, verifies that they cover the requested time window, and separates infrastructure noise from application errors. Before rollout, I fixed how the skill handled UTC offsets and resolved pod identities.",
+          "approach": "I also adapted the develop skill to apply our team’s coding standards during implementation. Engineers used it in a planning, implementation, and review workflow with human approval before write actions. I helped remove plaintext database credentials from shell profiles during onboarding."
         }
       ]
     },
@@ -74,7 +81,7 @@
       "label": "About",
       "title": "Simple solutions for complex systems.",
       "body": "I work across the stack, with a strong focus on server-side engineering, RESTful APIs, integration, and reliable delivery. My production experience spans Spring Boot and NestJS services, event-driven systems, databases, cloud infrastructure, and the interfaces that bring those systems to users.",
-      "note": "I have led technical discussions, mentored teammates, reviewed implementations, and investigated production issues. I value clear communication, practical architecture, and automated checks that make teams faster over time. I am also exploring agent-assisted engineering and MCP workflows, with a focus on useful production applications.",
+      "note": "I have led technical discussions, mentored teammates, reviewed implementations, and investigated production issues. I value clear communication, practical architecture, and automated checks that make teams faster over time. I have also co-developed internal AI tooling for incident triage and software development.",
       "principles": ["Keep it clear", "Own the outcome", "Build for change"],
       "facts": [
         { "label": "Education", "value": "Bachelor's Degree in Software Engineering · Thu Dau Mot University" },

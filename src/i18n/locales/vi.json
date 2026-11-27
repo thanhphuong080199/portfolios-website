@@ -42,7 +42,7 @@
       "years": "5 năm"
     },
     "caseStudies": {
-      "title": "Case study backend",
+      "title": "Case study kỹ thuật",
       "items": [
         {
           "status": "Đã khắc phục",
@@ -67,6 +67,13 @@
           "takeaway": "Một lần kiểm thử tải ở UAT ghi nhận 8 lần JVM khởi động lại trên hai pod trong khoảng 21 phút.",
           "diagnosis": "Tôi điều tra các lần khởi động lại và tìm ra nguyên nhân trong chart triển khai chung của các dịch vụ backend. Cả ba probe đều chạy trên cổng xử lý nghiệp vụ. Khi lưu lượng chiếm hết luồng xử lý của Tomcat, liveness probe bị timeout và Kubernetes khởi động lại các container vẫn đang xử lý yêu cầu.",
           "approach": "Bản sửa chuyển cả ba probe startup, readiness và liveness sang cổng quản trị riêng của Spring Boot Actuator trong chart dùng chung. Các probe dùng nhóm luồng xử lý riêng trong cùng JVM. Gateway và quy trình tự động hóa triển khai cũng đã chuyển sang dùng cổng quản trị để kiểm tra trạng thái."
+        },
+        {
+          "status": "Công cụ nội bộ cho kỹ sư · 2026",
+          "title": "Xây dựng bộ công cụ phát triển phần mềm với AI",
+          "takeaway": "Tôi cùng phát triển một plugin Claude Code nội bộ để chuẩn hóa cách kỹ sư dùng AI agent khi lập kế hoạch, viết mã và rà soát thay đổi trên nền tảng bảo hiểm.",
+          "diagnosis": "Tôi thiết kế và xây dựng skill phân tích log qua Argo CD, giúp kỹ sư bắt đầu điều tra sự cố bằng một prompt. Skill lấy log của pod Kubernetes, kiểm tra log có bao phủ khoảng thời gian được yêu cầu và phân biệt thông báo từ hạ tầng với lỗi ứng dụng. Trước khi triển khai, tôi sửa lỗi xử lý độ lệch múi giờ so với UTC và lỗi nhận diện pod.",
+          "approach": "Tôi chỉnh skill develop để AI áp dụng chuẩn viết mã của nhóm. Quy trình gồm lập kế hoạch, viết mã và rà soát, với bước phê duyệt của kỹ sư trước các thao tác ghi. Tôi cũng góp phần loại bỏ thông tin xác thực cơ sở dữ liệu dạng văn bản thuần khỏi cấu hình shell khi thiết lập môi trường."
         }
       ]
     },
@@ -74,7 +81,7 @@
       "label": "Giới thiệu",
       "title": "Giải pháp đơn giản cho hệ thống phức tạp.",
       "body": "Tôi làm việc xuyên suốt các lớp của ứng dụng, tập trung vào backend, RESTful API, tích hợp hệ thống và triển khai ổn định. Kinh nghiệm thực tế của tôi gồm dịch vụ Spring Boot và NestJS, hệ thống hướng sự kiện, cơ sở dữ liệu, hạ tầng đám mây và giao diện kết nối các hệ thống đó với người dùng.",
-      "note": "Tôi từng dẫn dắt thảo luận kỹ thuật, hướng dẫn đồng đội, rà soát cách triển khai và xử lý sự cố trong môi trường vận hành. Tôi coi trọng giao tiếp rõ ràng, kiến trúc thực dụng và kiểm thử tự động giúp cả nhóm làm việc hiệu quả hơn. Gần đây tôi cũng tìm hiểu quy trình phát triển có AI hỗ trợ và MCP, hướng đến ứng dụng thực tế.",
+      "note": "Tôi từng dẫn dắt thảo luận kỹ thuật, hướng dẫn đồng đội, rà soát cách triển khai và xử lý sự cố trong môi trường vận hành. Tôi coi trọng giao tiếp rõ ràng, kiến trúc thực dụng và kiểm thử tự động giúp cả nhóm làm việc hiệu quả hơn. Tôi cũng đã cùng phát triển công cụ AI nội bộ để hỗ trợ điều tra sự cố và phát triển phần mềm.",
       "principles": ["Giữ mọi thứ rõ ràng", "Chịu trách nhiệm đến cùng", "Thiết kế để thích ứng"],
       "facts": [
         { "label": "Học vấn", "value": "Cử nhân Kỹ thuật phần mềm · Đại học Thủ Dầu Một" },
