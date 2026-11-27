@@ -1,170 +1,195 @@
 {
-  "nav": {
-    "about": "GIỚI THIỆU",
-    "work": "DỰ ÁN",
-    "contact": "LIÊN HỆ"
-  },
-  "developer": {
-    "title": "Nhà phát triển AI & Full-Stack",
-    "description": "Nhà phát triển AI & Full-Stack xây dựng hệ thống thông minh và ứng dụng web hiện đại. Đam mê học máy, học sâu và tạo ra các tác nhân tự động thế hệ mới."
-  },
-  "landing": {
-    "greeting": "Xin chào! Tôi là",
-    "an": "Một",
-    "role1": "Kỹ sư AI",
-    "role2": "Nhà phát triển Full-Stack"
-  },
-  "about": {
-    "title": "Về tôi",
-    "description": "Tôi là nhà phát triển AI & Full-Stack tự học từ Bangladesh. Tôi xây dựng các hệ thống thông minh, chatbot và ứng dụng web hiện đại. Chuyên môn của tôi bao gồm Học máy, Học sâu, NLP và Phát triển Web Full-Stack với React, Node.js và Python. Hiện đang xây dựng các AI Agent thế hệ mới và Trợ lý cá nhân kiểu JARVIS. Tôi có tư duy lập trình thi đấu và niềm đam mê sâu sắc với tự động hóa. Code là thơ, AI là vải vẽ."
-  },
-  "whatido": {
-    "titlePart1": "TÔI",
-    "titlePart2": "LÀM GÌ",
-    "toolsLabel": "Kỹ năng & công cụ"
-  },
-  "career": {
-    "title": "Sự nghiệp & kinh nghiệm",
-    "now": "HIỆN TẠI"
-  },
-  "work": {
-    "titlePrefix": "Dự án ",
-    "titleHighlight": "của tôi",
-    "toolsLabel": "Công cụ & tính năng",
-    "ctaHeading": "Muốn xem thêm?",
-    "ctaSubheading": "Khám phá tất cả dự án và sản phẩm của tôi",
-    "ctaButton": "Xem tất cả dự án →"
-  },
-  "techstack": {
-    "title": "Công nghệ sử dụng"
-  },
-  "cta": {
-    "hire": "Thuê tôi →"
-  },
-  "contact": {
-    "emailLabel": "Email",
-    "locationLabel": "Địa điểm",
-    "socialLabel": "Mạng xã hội",
-    "footer": "Được thiết kế và phát triển bởi"
-  },
-  "myworks": {
-    "back": "← Về trang chủ",
-    "titlePrefix": "Tất cả ",
-    "titleHighlight": "dự án",
-    "subtitle": "Bộ sưu tập tất cả dự án và sản phẩm của tôi"
-  },
-  "skills": {
-    "develop": {
-      "title": "NHÀ PHÁT TRIỂN AI",
-      "description": "Xây dựng hệ thống thông minh & giải pháp AI",
-      "details": "Phát triển AI agents, chatbot và mô hình học máy sử dụng Python, TensorFlow và PyTorch. Chuyên về LLMs, NLP, học sâu và hệ thống tự động."
+  "content": {
+    "meta": {
+      "title": "Thanh Phuong Le | Kỹ sư Backend cấp cao",
+      "description": "Thanh Phuong Le là kỹ sư phần mềm tại Việt Nam, có 5 năm kinh nghiệm phát triển API, microservice và sản phẩm trên nền tảng đám mây."
     },
-    "design": {
-      "title": "FULL-STACK",
-      "description": "Phát triển web hiện đại & ứng dụng có thể mở rộng",
-      "details": "Xây dựng ứng dụng web responsive và hiệu năng cao sử dụng React, Next.js, Node.js và cơ sở dữ liệu. Tạo trải nghiệm người dùng liền mạch với các nguyên tắc UI/UX hiện đại."
+    "nav": {
+      "caseStudies": "Case study",
+      "about": "Giới thiệu",
+      "expertise": "Chuyên môn",
+      "experience": "Kinh nghiệm",
+      "projects": "Dự án",
+      "contact": "Liên hệ"
+    },
+    "controls": {
+      "switchToLight": "Chuyển sang giao diện sáng",
+      "switchToDark": "Chuyển sang giao diện tối",
+      "switchLanguage": "Switch to English",
+      "openMenu": "Mở menu",
+      "closeMenu": "Đóng menu",
+      "skip": "Chuyển đến nội dung",
+      "home": "Thanh Phuong Le — trang chủ",
+      "navigation": "Điều hướng chính",
+      "snapshot": "Thông tin nghề nghiệp tóm tắt",
+      "portrait": "Ảnh chân dung của Thanh Phuong Le"
+    },
+    "hero": {
+      "eyebrow": "Tại TP. Hồ Chí Minh, Việt Nam",
+      "role": "Kỹ sư Backend cấp cao / Full-Stack",
+      "headline": "Xây dựng phần mềm",
+      "emphasis": "vững chắc ở quy mô lớn.",
+      "intro": "Tôi chuyển những bài toán sản phẩm phức tạp thành API, dịch vụ và ứng dụng web dễ bảo trì. 5 năm làm việc với sản phẩm bảo hiểm, nông nghiệp, nền tảng dữ liệu và khách hàng thân thiết.",
+      "explore": "Đọc case study",
+      "email": "Liên hệ",
+      "profileLabel": "Hồ sơ",
+      "profileLine": "hệ thống / API / cloud / triển khai",
+      "locationLabel": "ĐỊA ĐIỂM",
+      "location": "TP. Hồ Chí Minh, Việt Nam",
+      "focusLabel": "TRỌNG TÂM",
+      "focus": "Backend · API · Cloud",
+      "yearsLabel": "KINH NGHIỆM",
+      "years": "5 năm"
+    },
+    "caseStudies": {
+      "title": "Case study backend",
+      "items": [
+        {
+          "status": "Đã khắc phục",
+          "title": "Khôi phục độ ổn định của API báo giá bảo hiểm",
+          "takeaway": "Sau khi khắc phục, hai lần kiểm thử tải ghi nhận 0 lỗi trên tổng cộng 138.553 yêu cầu báo giá.",
+          "diagnosis": "Trong lần kiểm thử tải ban đầu, 57,7% yêu cầu báo giá thất bại và độ trễ p95 lên tới 71 giây. Tôi tham gia điều tra và xác định một vòng gọi đồng bộ. Các yêu cầu báo giá chiếm hết luồng xử lý của Tomcat trong lúc chờ dịch vụ tính phí, còn các lần gọi ngược của dịch vụ tính phí lại cần chính những luồng đó.",
+          "approach": "Truyền trực tiếp dữ liệu tính phí giúp cắt vòng gọi và giữ nguyên đầu vào cùng logic tính phí. Đợt kiểm tra sau thay đổi không ghi nhận timeout. Mỗi báo giá vẫn mất khoảng 22 giây và log cho thấy hệ thống gọi từ xa nhiều lần để đọc feature flag. Các thay đổi tiếp theo gồm cache cấu hình flag, bỏ các lần kiểm tra dư thừa, thêm chỉ mục MongoDB cho truy vấn đang quét cả collection và ghi thời gian xử lý từng bước.",
+          "results": {
+            "caption": "Kết quả từng lần kiểm thử tải",
+            "columns": ["Lần chạy", "Yêu cầu", "Req/s", "Tỷ lệ lỗi", "p95"],
+            "rows": [
+              { "run": "Ban đầu", "samples": "—", "throughput": "—", "errors": "57,7%", "p95": "71 giây" },
+              { "run": "Chạy lại A", "samples": "57.553", "throughput": "59,92", "errors": "0%", "p95": "529 ms" },
+              { "run": "Chạy lại B", "samples": "81.000", "throughput": "89,41", "errors": "0%", "p95": "5,74 giây" }
+            ],
+            "note": "Hai lần chạy lại có thông lượng khác nhau. Số liệu ban đầu gồm tỷ lệ lỗi và p95."
+          }
+        },
+        {
+          "status": "Đã khắc phục",
+          "title": "Tách health probe Kubernetes khỏi luồng xử lý request",
+          "takeaway": "Một lần kiểm thử tải ở UAT ghi nhận 8 lần JVM khởi động lại trên hai pod trong khoảng 21 phút.",
+          "diagnosis": "Tôi điều tra các lần khởi động lại và tìm ra nguyên nhân trong chart triển khai chung của các dịch vụ backend. Cả ba probe đều chạy trên cổng xử lý nghiệp vụ. Khi lưu lượng chiếm hết luồng xử lý của Tomcat, liveness probe bị timeout và Kubernetes khởi động lại các container vẫn đang xử lý yêu cầu.",
+          "approach": "Bản sửa chuyển cả ba probe startup, readiness và liveness sang cổng quản trị riêng của Spring Boot Actuator trong chart dùng chung. Các probe dùng nhóm luồng xử lý riêng trong cùng JVM. Gateway và quy trình tự động hóa triển khai cũng đã chuyển sang dùng cổng quản trị để kiểm tra trạng thái."
+        }
+      ]
+    },
+    "about": {
+      "label": "Giới thiệu",
+      "title": "Giải pháp đơn giản cho hệ thống phức tạp.",
+      "body": "Tôi làm việc xuyên suốt các lớp của ứng dụng, tập trung vào backend, RESTful API, tích hợp hệ thống và triển khai ổn định. Kinh nghiệm thực tế của tôi gồm dịch vụ Spring Boot và NestJS, hệ thống hướng sự kiện, cơ sở dữ liệu, hạ tầng đám mây và giao diện kết nối các hệ thống đó với người dùng.",
+      "note": "Tôi từng dẫn dắt thảo luận kỹ thuật, hướng dẫn đồng đội, rà soát cách triển khai và xử lý sự cố trong môi trường vận hành. Tôi coi trọng giao tiếp rõ ràng, kiến trúc thực dụng và kiểm thử tự động giúp cả nhóm làm việc hiệu quả hơn. Gần đây tôi cũng tìm hiểu quy trình phát triển có AI hỗ trợ và MCP, hướng đến ứng dụng thực tế.",
+      "principles": ["Giữ mọi thứ rõ ràng", "Chịu trách nhiệm đến cùng", "Thiết kế để thích ứng"],
+      "facts": [
+        { "label": "Học vấn", "value": "Cử nhân Kỹ thuật phần mềm · Đại học Thủ Dầu Một" },
+        { "label": "Tiếng Anh", "value": "Khá (Upper-intermediate)" }
+      ]
+    },
+    "expertise": {
+      "label": "Chuyên môn",
+      "title": "Giá trị tôi mang đến",
+      "intro": "Chuyên sâu backend cùng góc nhìn full-stack để đưa sản phẩm đến người dùng.",
+      "cards": [
+        {
+          "title": "API & dịch vụ",
+          "body": "Thiết kế và duy trì RESTful API, microservice, luồng xác thực và tích hợp cho sản phẩm có nghiệp vụ phức tạp.",
+          "tags": ["Java", "Spring Boot", "NestJS", "Node.js", "Python", "OpenAPI"]
+        },
+        {
+          "title": "Dữ liệu & hệ thống phân tán",
+          "body": "Làm việc với cơ sở dữ liệu quan hệ và tài liệu, bộ nhớ đệm, công cụ tìm kiếm và luồng xử lý bất đồng bộ trên cloud.",
+          "tags": ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "Kafka", "SQS"]
+        },
+        {
+          "title": "Triển khai & chất lượng",
+          "body": "Đưa tính năng từ yêu cầu đến môi trường vận hành thông qua CI/CD, kiểm thử tự động, rà soát mã, giám sát và xử lý sự cố.",
+          "tags": ["AWS", "Azure", "Docker", "Kubernetes", "Jest", "Playwright"]
+        }
+      ]
+    },
+    "experience": {
+      "label": "Kinh nghiệm tiêu biểu",
+      "title": "Sản phẩm đã triển khai thực tế",
+      "intro": "Một số sản phẩm đã triển khai. Tên khách hàng và đơn vị không công khai được lược bỏ.",
+      "items": [
+        {
+          "period": "11/2024 – 05/2026",
+          "role": "Lập trình viên Full-Stack",
+          "domain": "Nền tảng dữ liệu nông nghiệp",
+          "summary": "Xây dựng nền tảng giúp chuyên gia nông nghiệp quản lý dữ liệu canh tác và đưa ra thông tin hữu ích cho nông dân.",
+          "highlights": [
+            "Phát triển tính năng từ giao diện Next.js đến dịch vụ NestJS, Python và tầng dữ liệu.",
+            "Hỗ trợ nhiều ngôn ngữ, nhiều khu vực; điều tra sự cố vận hành và kiểm tra các luồng tích hợp."
+          ],
+          "tags": ["NestJS", "Python", "Next.js", "MongoDB", "Redis", "Azure"]
+        },
+        {
+          "period": "07/2023 – 11/2024",
+          "role": "Lập trình viên Full-Stack",
+          "domain": "Nền tảng phân phối bảo hiểm",
+          "summary": "Phát triển nền tảng bảo hiểm white-label với tích hợp đối tác và sản phẩm nhúng tại điểm bán.",
+          "highlights": [
+            "Xây dựng microservice bằng NestJS và Spring Boot; phát triển micro-frontend với Nx và Module Federation.",
+            "Triển khai xác thực, SSO doanh nghiệp và hỗ trợ vận hành trên hạ tầng cloud đa khu vực."
+          ],
+          "tags": ["Spring Boot", "NestJS", "CQRS", "Azure", "AWS", "SSO"]
+        },
+        {
+          "period": "01/2023 – 07/2023",
+          "role": "Trưởng nhóm kỹ thuật / Lập trình viên Full-Stack",
+          "domain": "Quản lý kịch bản kiểm thử",
+          "summary": "Tham gia xây dựng công cụ quản lý test case, theo dõi kết quả chạy thủ công và tự động, cùng báo cáo trực quan.",
+          "highlights": [
+            "Dẫn dắt phân tích kỹ thuật và thảo luận kiến trúc với Product Owner và Business Analyst.",
+            "Hướng dẫn đồng đội; phát triển API, dữ liệu, kiểm thử tích hợp và xử lý sự cố."
+          ],
+          "tags": ["Node.js", "Express", "PostgreSQL", "Redis", "Angular", "Azure"]
+        },
+        {
+          "period": "07/2021 – 06/2022",
+          "role": "Lập trình viên Full-Stack",
+          "domain": "Nền tảng bảo hiểm qua ngân hàng",
+          "summary": "Phát triển ứng dụng bảo hiểm phục vụ mua hợp đồng, yêu cầu bồi thường và quản lý quyền lợi.",
+          "highlights": [
+            "Phát triển dịch vụ và API bằng Spring Boot; hỗ trợ vận hành và triển khai.",
+            "Làm việc với hạ tầng AWS, Kubernetes, CI/CD và hệ thống giám sát."
+          ],
+          "tags": ["Java", "Spring Boot", "PostgreSQL", "AWS", "Kubernetes"]
+        }
+      ]
+    },
+    "projects": {
+      "label": "Dự án công khai",
+      "title": "Sản phẩm ngoài công việc",
+      "intro": "Một vài dự án cá nhân công khai có mã nguồn và tài liệu rõ ràng.",
+      "source": "Xem mã nguồn",
+      "demo": "Xem bản chạy thử",
+      "openSource": "Mã nguồn mở",
+      "items": [
+        {
+          "category": "Ứng dụng web · Trò chơi địa lý",
+          "title": "VietGuessr",
+          "description": "Trò chơi đoán địa điểm tại Việt Nam bằng ảnh đường phố thực tế. Người chơi khám phá ảnh toàn cảnh, đặt ghim trên bản đồ và nhận điểm theo khoảng cách.",
+          "highlights": ["Có bản demo trên web", "Tài liệu cài đặt và kiểm thử bằng Vitest"],
+          "tags": ["React", "TypeScript", "Mapillary", "MapLibre", "Vitest"]
+        },
+        {
+          "category": "Ứng dụng Android · Có AI hỗ trợ",
+          "title": "Calorie Tracker",
+          "description": "Ứng dụng theo dõi bữa ăn trên Android, hoạt động ưu tiên ngoại tuyến; nhận diện món ăn từ ảnh và so sánh dinh dưỡng ước tính với mục tiêu hằng ngày.",
+          "highlights": ["Lưu nhật ký và cài đặt trên thiết bị", "Gemini Vision có cơ chế chuyển đổi dự phòng và thử lại"],
+          "tags": ["React Native", "Expo", "TypeScript", "Gemini", "AsyncStorage"]
+        }
+      ]
+    },
+    "contact": {
+      "label": "Liên hệ",
+      "title": "Cùng xây dựng sản phẩm hữu ích.",
+      "body": "Nếu bạn đang tìm kỹ sư thiên về backend hoặc có sản phẩm với bài toán hệ thống thú vị, tôi rất sẵn lòng trao đổi.",
+      "email": "Gửi email",
+      "github": "Trang GitHub",
+      "linkedin": "Trang LinkedIn",
+      "location": "TP. Hồ Chí Minh, Việt Nam"
+    },
+    "footer": {
+      "note": "Kỹ sư thiên về backend",
+      "top": "Về đầu trang"
     }
-  },
-  "experiences": [
-    {
-      "position": "Học điều gì đó mới",
-      "company": "Tự phát triển",
-      "description": "Liên tục khám phá các công nghệ mới nổi, nghiên cứu các hệ thống AI tiên tiến và không ngừng mở rộng giới hạn những gì có thể trong công nghệ.",
-      "responsibilities": [
-        "Nghiên cứu các công nghệ AI và ML tiên tiến",
-        "Thử nghiệm các framework và công cụ mới",
-        "Đóng góp cho các dự án mã nguồn mở",
-        "Xây dựng các dự án cá nhân sáng tạo"
-      ]
-    },
-    {
-      "position": "Kỹ sư AI",
-      "company": "Freelance & Dự án",
-      "description": "Phát triển các hệ thống AI thông minh, chatbot và giải pháp học máy. Xây dựng các AI agent hội thoại thế hệ mới và trợ lý cá nhân kiểu JARVIS.",
-      "responsibilities": [
-        "Xây dựng chatbot và agent hội thoại được hỗ trợ bởi AI",
-        "Phát triển mô hình học máy với TensorFlow và PyTorch",
-        "Làm việc với LLMs và kiến trúc transformer",
-        "Tạo hệ thống AI tự động và công cụ tự động hóa"
-      ]
-    },
-    {
-      "position": "Nhà phát triển Full-Stack",
-      "company": "Freelance & Dự án",
-      "description": "Xây dựng ứng dụng web hoàn chỉnh từ frontend đến backend. Phát triển giao diện responsive, RESTful API và giải pháp cơ sở dữ liệu cho nhiều khách hàng và dự án.",
-      "responsibilities": [
-        "Phát triển ứng dụng web full-stack sử dụng React và Node.js",
-        "Xây dựng RESTful API và tích hợp cơ sở dữ liệu",
-        "Tạo giao diện người dùng responsive và tương tác",
-        "Triển khai và bảo trì ứng dụng web"
-      ]
-    },
-    {
-      "position": "Nhà phát triển Python",
-      "company": "Tự học & Dự án",
-      "description": "Đào sâu vào lập trình Python, xây dựng script tự động hóa, bot và nắm vững các nguyên tắc cơ bản của phát triển phần mềm và giải quyết vấn đề.",
-      "responsibilities": [
-        "Học lập trình Python và các khái niệm cốt lõi",
-        "Xây dựng script tự động hóa và Discord bot",
-        "Khám phá cấu trúc dữ liệu và thuật toán",
-        "Tham gia lập trình thi đấu"
-      ]
-    },
-    {
-      "position": "Nhà thiết kế đồ họa",
-      "company": "Freelance",
-      "description": "Bắt đầu hành trình sáng tạo với tư cách là nhà thiết kế đồ họa, tạo logo, banner và nội dung trực quan. Điều này đã khơi dậy niềm đam mê của tôi với công nghệ và sáng tạo kỹ thuật số.",
-      "responsibilities": [
-        "Thiết kế logo và tài liệu nhận diện thương hiệu",
-        "Tạo đồ họa mạng xã hội và banner",
-        "Làm việc với khách hàng trong các dự án sáng tạo",
-        "Học các nguyên tắc thiết kế và thẩm mỹ trực quan"
-      ]
-    },
-    {
-      "position": "Microsoft Office",
-      "company": "Bắt đầu học",
-      "description": "Bắt đầu hành trình vào thế giới kỹ thuật số bằng cách học các công cụ Microsoft Office. Bước nền tảng này đã giới thiệu tôi với máy tính và khơi dậy sự tò mò của tôi về công nghệ.",
-      "responsibilities": [
-        "Học Microsoft Word, Excel và PowerPoint",
-        "Tạo tài liệu và bài thuyết trình",
-        "Hiểu các thao tác máy tính cơ bản",
-        "Xây dựng kỹ năng kỹ thuật số nền tảng"
-      ]
-    }
-  ],
-  "projects": [
-    {
-      "category": "AI / LLM",
-      "description": "Chatbot AI tiên tiến đầu tiên của Bangladesh được hỗ trợ bởi Mô hình Ngôn ngữ Lớn tùy chỉnh. Có khả năng hiểu ngôn ngữ tự nhiên, hội thoại theo ngữ cảnh và hỗ trợ đa ngôn ngữ bao gồm tiếng Bengali."
-    },
-    {
-      "category": "Blockchain",
-      "description": "Hệ thống bầu cử phi tập trung được xây dựng trên công nghệ blockchain đảm bảo bỏ phiếu minh bạch, chống giả mạo và có thể xác minh. Tính năng hợp đồng thông minh cho tính toàn vẹn phiếu bầu và theo dõi kết quả thời gian thực."
-    },
-    {
-      "category": "IoT / Phần cứng",
-      "description": "Hệ thống IoT dựa trên mạch thực tế sử dụng Arduino để dự báo động đất trước khi xảy ra. Tích hợp cảm biến phần cứng để phát hiện địa chấn và ước tính tác động theo thời gian thực."
-    },
-    {
-      "category": "Full Stack",
-      "description": "Nền tảng thương mại điện tử đầy đủ tính năng cho sản phẩm gaming. Bao gồm xác thực người dùng, danh mục sản phẩm, giỏ hàng, thanh toán an toàn, theo dõi đơn hàng và bảng điều khiển admin."
-    },
-    {
-      "category": "AI / Game Engine",
-      "description": "Cỗ máy cờ vua hiệu năng cao được xếp hạng 3640 ELO. Tính năng thuật toán tìm kiếm nâng cao, đánh giá mạng nơ-ron và biểu diễn bitboard được tối ưu hóa để tạo nước đi siêu nhanh."
-    },
-    {
-      "category": "AI / ML",
-      "description": "Mô hình dự báo lũ lụt được thiết kế đặc biệt cho hệ thống sông ngòi Bangladesh. Phân tích mẫu thời tiết, mực nước và dữ liệu lịch sử để cung cấp dự báo và cảnh báo lũ lụt chính xác."
-    },
-    {
-      "category": "Trợ lý AI",
-      "description": "Trợ lý AI desktop cá nhân lấy cảm hứng từ JARVIS. Điều khiển các chức năng hệ thống, quản lý tác vụ, trả lời câu hỏi, tự động hóa quy trình làm việc và cung cấp trải nghiệm máy tính kích hoạt bằng giọng nói."
-    },
-    {
-      "category": "Bảo mật / Android",
-      "description": "Công cụ giám sát Android và nghiên cứu bảo mật nâng cao. Tính năng quản lý thiết bị từ xa, ghi nhật ký hoạt động và truyền dữ liệu được mã hóa cho mục đích kiểm tra bảo mật."
-    }
-  ]
+  }
 }

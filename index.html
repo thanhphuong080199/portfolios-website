@@ -2,9 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redoyanul Haque - AI Developer | Python Engineer</title>
+    <meta name="description" content="Thanh Phuong Le is a backend-focused software engineer in Vietnam with five years of experience building APIs, microservices, and cloud-backed products." />
+    <meta name="theme-color" content="#111610" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Thanh Phuong Le | Senior Backend Engineer</title>
+    <script>
+      try {
+        const saved = localStorage.getItem('portfolio-theme');
+        const theme = saved === 'dark' || saved === 'light' ? saved : (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.dataset.theme = theme;
+      } catch {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,170 +1,195 @@
 {
-  "nav": {
-    "about": "ABOUT",
-    "work": "WORK",
-    "contact": "CONTACT"
-  },
-  "developer": {
-    "title": "AI & Full-Stack Developer",
-    "description": "AI & Full-Stack Developer building intelligent systems and modern web applications. Passionate about machine learning, deep learning, and creating next-gen autonomous agents."
-  },
-  "landing": {
-    "greeting": "Hello! I'm",
-    "an": "An",
-    "role1": "AI Engineer",
-    "role2": "Full-Stack Developer"
-  },
-  "about": {
-    "title": "About Me",
-    "description": "I am a self-taught AI & Full-Stack Developer from Bangladesh. I build intelligent systems, chatbots, and modern web applications. My expertise includes Machine Learning, Deep Learning, NLP, and Full-Stack Web Development with React, Node.js, and Python. Currently building next-gen AI Agents and JARVIS-like Personal Assistants. I have a competitive programming mindset and a deep passion for automation. Code is poetry, AI is the canvas."
-  },
-  "whatido": {
-    "titlePart1": "WHAT",
-    "titlePart2": "I DO",
-    "toolsLabel": "Skillset & tools"
-  },
-  "career": {
-    "title": "My career & experience",
-    "now": "NOW"
-  },
-  "work": {
-    "titlePrefix": "My ",
-    "titleHighlight": "Work",
-    "toolsLabel": "Tools and features",
-    "ctaHeading": "Want to see more?",
-    "ctaSubheading": "Explore all of my projects and creations",
-    "ctaButton": "See All Works →"
-  },
-  "techstack": {
-    "title": "Tech Stack"
-  },
-  "cta": {
-    "hire": "Hire Me →"
-  },
-  "contact": {
-    "emailLabel": "Email",
-    "locationLabel": "Location",
-    "socialLabel": "Social",
-    "footer": "Designed and Developed by"
-  },
-  "myworks": {
-    "back": "← Back to Home",
-    "titlePrefix": "All ",
-    "titleHighlight": "Works",
-    "subtitle": "A collection of all my projects and creations"
-  },
-  "skills": {
-    "develop": {
-      "title": "AI DEVELOPER",
-      "description": "Building intelligent systems & AI solutions",
-      "details": "Developing AI agents, chatbots, and machine learning models using Python, TensorFlow, and PyTorch. Specializing in LLMs, NLP, deep learning, and autonomous systems."
+  "content": {
+    "meta": {
+      "title": "Thanh Phuong Le | Senior Backend Engineer",
+      "description": "Thanh Phuong Le is a backend-focused software engineer in Vietnam with five years of experience building APIs, microservices, and cloud-backed products."
     },
-    "design": {
-      "title": "FULL-STACK",
-      "description": "Modern web development & scalable applications",
-      "details": "Building responsive and performant web applications using React, Next.js, Node.js, and databases. Creating seamless user experiences with modern UI/UX principles."
+    "nav": {
+      "caseStudies": "Case studies",
+      "about": "About",
+      "expertise": "Expertise",
+      "experience": "Experience",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "controls": {
+      "switchToLight": "Switch to light theme",
+      "switchToDark": "Switch to dark theme",
+      "switchLanguage": "Switch to Vietnamese",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "skip": "Skip to content",
+      "home": "Thanh Phuong Le — home",
+      "navigation": "Main navigation",
+      "snapshot": "Professional profile snapshot",
+      "portrait": "Portrait of Thanh Phuong Le"
+    },
+    "hero": {
+      "eyebrow": "Based in Ho Chi Minh City, Vietnam",
+      "role": "Senior Backend / Full-Stack Engineer",
+      "headline": "Building dependable",
+      "emphasis": "software at scale.",
+      "intro": "I turn complex product needs into maintainable APIs, services, and web applications. Five years across insurance, agriculture, data platforms, and loyalty products.",
+      "explore": "Read the case studies",
+      "email": "Get in touch",
+      "profileLabel": "Profile",
+      "profileLine": "systems / APIs / cloud / delivery",
+      "locationLabel": "LOCATION",
+      "location": "Ho Chi Minh City, Vietnam",
+      "focusLabel": "FOCUS",
+      "focus": "Backend · APIs · Cloud",
+      "yearsLabel": "EXPERIENCE",
+      "years": "5 years"
+    },
+    "caseStudies": {
+      "title": "Backend case studies",
+      "items": [
+        {
+          "status": "Resolved",
+          "title": "Restoring reliability to an insurance quote API",
+          "takeaway": "After the fix, two load tests recorded zero failures across 138,553 quote requests.",
+          "diagnosis": "In the initial load test, 57.7% of quote requests failed and p95 latency reached 71 seconds. I helped trace the issue to a synchronous call cycle. Quote requests held the available Tomcat threads while waiting for the rating service, whose callbacks needed those same threads.",
+          "approach": "Passing the calculation data directly broke the cycle and preserved the rating inputs and logic. A check after that change recorded no timeouts. Quotes still took about 22 seconds, and logs pointed to repeated remote feature flag lookups. The follow-up changes cached flag configuration, removed redundant flag checks, added a MongoDB index for a lookup that scanned the collection, and logged timings for each stage.",
+          "results": {
+            "caption": "Load test results by run",
+            "columns": ["Run", "Requests", "Req/s", "Errors", "p95"],
+            "rows": [
+              { "run": "Baseline", "samples": "—", "throughput": "—", "errors": "57.7%", "p95": "71 s" },
+              { "run": "Retest A", "samples": "57,553", "throughput": "59.92", "errors": "0%", "p95": "529 ms" },
+              { "run": "Retest B", "samples": "81,000", "throughput": "89.41", "errors": "0%", "p95": "5.74 s" }
+            ],
+            "note": "The two retests ran at different throughputs. The baseline figures cover error rate and p95 only."
+          }
+        },
+        {
+          "status": "Resolved",
+          "title": "Isolating Kubernetes health probes from application traffic",
+          "takeaway": "A UAT load test recorded eight JVM restarts across two pods in roughly 21 minutes.",
+          "diagnosis": "I investigated the restarts and traced them to the shared backend deployment chart. All three probes ran on the application port. When incoming traffic exhausted Tomcat’s request threads, liveness checks timed out and Kubernetes restarted containers that were still processing requests.",
+          "approach": "The fix moved startup, readiness, and liveness probes to a dedicated Spring Boot Actuator management port in the shared chart. The probes now use a separate request pool within the same JVM. The gateway health route and deployment automation were updated to use the management port."
+        }
+      ]
+    },
+    "about": {
+      "label": "About",
+      "title": "Simple solutions for complex systems.",
+      "body": "I work across the stack, with a strong focus on server-side engineering, RESTful APIs, integration, and reliable delivery. My production experience spans Spring Boot and NestJS services, event-driven systems, databases, cloud infrastructure, and the interfaces that bring those systems to users.",
+      "note": "I have led technical discussions, mentored teammates, reviewed implementations, and investigated production issues. I value clear communication, practical architecture, and automated checks that make teams faster over time. I am also exploring agent-assisted engineering and MCP workflows, with a focus on useful production applications.",
+      "principles": ["Keep it clear", "Own the outcome", "Build for change"],
+      "facts": [
+        { "label": "Education", "value": "Bachelor's Degree in Software Engineering · Thu Dau Mot University" },
+        { "label": "English", "value": "Upper-intermediate" }
+      ]
+    },
+    "expertise": {
+      "label": "Expertise",
+      "title": "What I bring to a team",
+      "intro": "Backend depth with the full-stack perspective needed to ship useful products.",
+      "cards": [
+        {
+          "title": "APIs & services",
+          "body": "Designing and maintaining RESTful APIs, microservices, authentication flows, and integrations for products with complex business rules.",
+          "tags": ["Java", "Spring Boot", "NestJS", "Node.js", "Python", "OpenAPI"]
+        },
+        {
+          "title": "Data & distributed systems",
+          "body": "Working with transactional and document databases, caching, search, and asynchronous messaging in cloud-backed systems.",
+          "tags": ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "Kafka", "SQS"]
+        },
+        {
+          "title": "Delivery & quality",
+          "body": "Taking features from requirements to production, with CI/CD, automated testing, reviews, observability, and hands-on troubleshooting.",
+          "tags": ["AWS", "Azure", "Docker", "Kubernetes", "Jest", "Playwright"]
+        }
+      ]
+    },
+    "experience": {
+      "label": "Selected experience",
+      "title": "Work that reached production",
+      "intro": "Selected production work. Client and employer names are omitted where they are not public.",
+      "items": [
+        {
+          "period": "Nov 2024 – May 2026",
+          "role": "Full-Stack Developer",
+          "domain": "Agriculture data platform",
+          "summary": "Built a platform that helps agronomists manage farming data and provide farmers with actionable insights.",
+          "highlights": [
+            "Delivered features across Next.js interfaces, NestJS and Python services, and the data layer.",
+            "Supported multilingual and multi-region use cases; investigated production issues and verified integrations."
+          ],
+          "tags": ["NestJS", "Python", "Next.js", "MongoDB", "Redis", "Azure"]
+        },
+        {
+          "period": "Jul 2023 – Nov 2024",
+          "role": "Full-Stack Developer",
+          "domain": "Insurance marketplace",
+          "summary": "Developed a white-label insurance platform with partner integrations and products embedded at the point of sale.",
+          "highlights": [
+            "Built microservices with NestJS and Spring Boot and micro-frontends with Nx and Module Federation.",
+            "Implemented authentication and enterprise SSO flows, and supported multi-region cloud delivery."
+          ],
+          "tags": ["Spring Boot", "NestJS", "CQRS", "Azure", "AWS", "SSO"]
+        },
+        {
+          "period": "Jan 2023 – Jul 2023",
+          "role": "Technical Lead / Full-Stack Developer",
+          "domain": "Test case management",
+          "summary": "Helped build a tool for managing test cases, tracking manual and automated runs, and visualizing reports.",
+          "highlights": [
+            "Led technical analysis and architecture discussions with product owners and business analysts.",
+            "Mentored teammates and contributed across APIs, data, integration testing, and troubleshooting."
+          ],
+          "tags": ["Node.js", "Express", "PostgreSQL", "Redis", "Angular", "Azure"]
+        },
+        {
+          "period": "Jul 2021 – Jun 2022",
+          "role": "Full-Stack Developer",
+          "domain": "Bancassurance platform",
+          "summary": "Worked on an insurance application for purchasing policies, claims, and plan management.",
+          "highlights": [
+            "Developed Spring Boot services and APIs and supported production operations and deployments.",
+            "Worked with AWS infrastructure, Kubernetes deployments, CI/CD, and monitoring."
+          ],
+          "tags": ["Java", "Spring Boot", "PostgreSQL", "AWS", "Kubernetes"]
+        }
+      ]
+    },
+    "projects": {
+      "label": "Public projects",
+      "title": "Built beyond the day job",
+      "intro": "A small selection of public side projects with working code and clear documentation.",
+      "source": "View source",
+      "demo": "Live demo",
+      "openSource": "Open source",
+      "items": [
+        {
+          "category": "Web app · Geography game",
+          "title": "VietGuessr",
+          "description": "A Vietnam location-guessing game using real street-level imagery. Players explore a panorama, place a pin on the map, and receive a distance-based score.",
+          "highlights": ["Live web demo", "Documented setup and Vitest coverage"],
+          "tags": ["React", "TypeScript", "Mapillary", "MapLibre", "Vitest"]
+        },
+        {
+          "category": "Android app · AI-assisted",
+          "title": "Calorie Tracker",
+          "description": "An offline-first Android meal tracker that recognizes food from photos and compares estimated nutrition with a personalized daily goal.",
+          "highlights": ["Local-first meal logs and settings", "Gemini Vision with fallback and retry handling"],
+          "tags": ["React Native", "Expo", "TypeScript", "Gemini", "AsyncStorage"]
+        }
+      ]
+    },
+    "contact": {
+      "label": "Contact",
+      "title": "Let's build something useful.",
+      "body": "Interested in a backend-focused engineering role or a product with challenging systems work? I would be glad to talk.",
+      "email": "Email me",
+      "github": "GitHub profile",
+      "linkedin": "LinkedIn profile",
+      "location": "Ho Chi Minh City, Vietnam"
+    },
+    "footer": {
+      "note": "Backend-focused engineer",
+      "top": "Back to top"
     }
-  },
-  "experiences": [
-    {
-      "position": "Learning Something New",
-      "company": "Self-Development",
-      "description": "Continuously exploring emerging technologies, researching advanced AI systems, and pushing the boundaries of what's possible in tech.",
-      "responsibilities": [
-        "Researching cutting-edge AI and ML technologies",
-        "Experimenting with new frameworks and tools",
-        "Contributing to open-source projects",
-        "Building innovative personal projects"
-      ]
-    },
-    {
-      "position": "AI Engineer",
-      "company": "Freelance & Projects",
-      "description": "Developing intelligent AI systems, chatbots, and machine learning solutions. Building next-gen conversational AI agents and JARVIS-like personal assistants.",
-      "responsibilities": [
-        "Building AI-powered chatbots and conversational agents",
-        "Developing machine learning models with TensorFlow and PyTorch",
-        "Working with LLMs and transformer architectures",
-        "Creating autonomous AI systems and automation tools"
-      ]
-    },
-    {
-      "position": "Full-Stack Developer",
-      "company": "Freelance & Projects",
-      "description": "Built complete web applications from frontend to backend. Developed responsive UIs, RESTful APIs, and database solutions for various clients and projects.",
-      "responsibilities": [
-        "Developing full-stack web applications using React and Node.js",
-        "Building RESTful APIs and integrating databases",
-        "Creating responsive and interactive user interfaces",
-        "Deploying and maintaining web applications"
-      ]
-    },
-    {
-      "position": "Python Developer",
-      "company": "Self-Taught & Projects",
-      "description": "Dove deep into Python programming, building automation scripts, bots, and mastering the fundamentals of software development and problem-solving.",
-      "responsibilities": [
-        "Learning Python programming and core concepts",
-        "Building automation scripts and Discord bots",
-        "Exploring data structures and algorithms",
-        "Participating in competitive programming"
-      ]
-    },
-    {
-      "position": "Graphic Designer",
-      "company": "Freelance",
-      "description": "Started my creative journey as a graphic designer, creating logos, banners, and visual content. This sparked my passion for technology and digital creation.",
-      "responsibilities": [
-        "Designing logos and brand identity materials",
-        "Creating social media graphics and banners",
-        "Working with clients on creative projects",
-        "Learning design principles and visual aesthetics"
-      ]
-    },
-    {
-      "position": "Microsoft Office",
-      "company": "Begin Learning",
-      "description": "Started my journey into the digital world by learning Microsoft Office tools. This foundational step introduced me to computers and sparked my curiosity for technology.",
-      "responsibilities": [
-        "Learning Microsoft Word, Excel, and PowerPoint",
-        "Creating documents and presentations",
-        "Understanding basic computer operations",
-        "Building foundational digital skills"
-      ]
-    }
-  ],
-  "projects": [
-    {
-      "category": "AI / LLM",
-      "description": "Bangladesh's first intelligent advanced AI chatbot powered by a custom Large Language Model. Features natural language understanding, contextual conversations, and multilingual support including Bengali."
-    },
-    {
-      "category": "Blockchain",
-      "description": "A decentralized election system built on blockchain technology ensuring transparent, tamper-proof, and verifiable voting. Features smart contracts for vote integrity and real-time result tracking."
-    },
-    {
-      "category": "IoT / Hardware",
-      "description": "A practical circuit-based IoT system utilizing Arduino to predict earthquakes before they strike. Integrates hardware sensors for real-time seismic detection and impact estimation."
-    },
-    {
-      "category": "Full Stack",
-      "description": "A full-featured e-commerce platform for gaming products. Includes user authentication, product catalog, shopping cart, secure payments, order tracking, and admin dashboard."
-    },
-    {
-      "category": "AI / Game Engine",
-      "description": "A high-performance chess engine rated 3640 ELO. Features advanced search algorithms, neural network evaluation, and optimized bitboard representation for lightning-fast move generation."
-    },
-    {
-      "category": "AI / ML",
-      "description": "A flood prediction model specifically designed for Bangladesh's river systems. Analyzes weather patterns, water levels, and historical data to provide accurate flood forecasts and alerts."
-    },
-    {
-      "category": "AI Assistant",
-      "description": "A JARVIS-inspired personal AI desktop assistant. Controls system functions, manages tasks, answers queries, automates workflows, and provides voice-activated computing experience."
-    },
-    {
-      "category": "Security / Android",
-      "description": "An advanced Android monitoring and security research tool. Features remote device management, activity logging, and encrypted data transmission for security testing purposes."
-    }
-  ]
+  }
 }
